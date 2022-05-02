@@ -1,3 +1,3 @@
-export default class Salle {
+class Salle {
 
 }
