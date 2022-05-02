@@ -1,3 +1,3 @@
-class Mage() {
+class Mage {
     
 }

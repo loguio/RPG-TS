@@ -1,3 +1,3 @@
-class Monstre() {
+class Monstre {
     
 }

@@ -1,3 +1,3 @@
-class Guerrier() {
+class Guerrier {
     
 }

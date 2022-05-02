@@ -1,3 +1,3 @@
-class Barbare() {
+class Barbare {
     
 }
