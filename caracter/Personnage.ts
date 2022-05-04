@@ -1,4 +1,4 @@
-export class Perso {
+class Perso {
     invetory : Object[] = [];
     name : string = "";
     valueAtk : Number = 0;
@@ -14,4 +14,6 @@ export class Perso {
     Attack() {
         
     }
+
+    
 }
