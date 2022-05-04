@@ -33,25 +33,24 @@ export class Menu {
             }
         }
         for (let i = 0; i < this.choice.length; i++) {
-            let i = 0
             if (this.choice[i] == "1") {
                 this.choice[i] = "Guerrier";
-                i++;
+                
             } else if (this.choice[i] == "2") {
                 this.choice[i] = "Mage";
-                i++;
+                
             } else if (this.choice[i] == "3") {
                 this.choice[i] = "Paladin";
-                i++;
+                
             } else if (this.choice[i] == "4") {
                 this.choice[i] = "Barbare";
-                i++;
+                
             } else if (this.choice[i] == "5") {
                 this.choice[i] = "Prêtre";
-                i++;
+               
             } else if (this.choice[i] == "6") {
                 this.choice[i] = "Voleur";
-                i++;    
+                    
             }            
         }
         return this.choice  
