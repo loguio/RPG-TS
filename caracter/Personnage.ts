@@ -1,4 +1,4 @@
-class Perso {
+export class Perso {
     invetory : Object[] = [];
     name : string = "";
     valueAtk : Number = 0;

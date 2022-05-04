@@ -1,8 +1,10 @@
 import {Menu} from "./menu.ts";
 
 class GameManager {
+    equipe: string[] = [];
     startGame() {
-        new Menu().chooseCharacter();
+        this.equipe = new Menu().chooseCharacter();
+        console.log(this.equipe);
     }
 
     fight() {
