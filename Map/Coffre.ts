@@ -1,3 +1,3 @@
-class Coffre {
+export default class Coffre {
     
 }

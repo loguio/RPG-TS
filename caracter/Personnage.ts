@@ -1,4 +1,4 @@
-class Perso {
+export default class Perso {
     invetory : Object[] = [];
     name : string;
     valueAtk : number = 80;
@@ -13,10 +13,16 @@ class Perso {
     UseItem() {
 
     }
-    
+    /**
+     * Fonction pour attaquer un personnage
+     * @param enemy l'ennemi que le personnage va attaquer
+     */
     Attack(enemy : any) {
         enemy.life -= (this.valueAtk - enemy.valueDef);
     }
+    /**
+     * Fonction pour soigner un personnage  
+     */
     Heal() {
         this.life += 0.2*this.ValueMaxLife;
     }

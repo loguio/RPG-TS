@@ -1,13 +1,13 @@
-import {Perso} from "./caracter/Personnage.ts";
+import Perso from "./caracter/Personnage.ts";
 import Menu from "./menu.ts";
 
-class Fight {
+export default class Fight {
     Ally : Perso[]  = []
     Ennemies : Perso[] = []
 
     AllyTeamAlive() {
         for (const element of this.Ally) {
-            if (element.Alive == true) {
+            if (element.alive == true) {
                 return true
             }
         }
@@ -16,7 +16,7 @@ class Fight {
 
     EnnemiesTeamAlive() {
         for (const element of this.Ennemies) {
-            if (element.Alive == true) {
+            if (element.alive == true) {
                 return true
             }
         }
@@ -29,6 +29,3 @@ class Fight {
         }
     }
 }
-
-const test = new Fight 
-test.Fight()
