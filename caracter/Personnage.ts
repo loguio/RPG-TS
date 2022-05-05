@@ -1,11 +1,13 @@
 class Perso {
     invetory : Object[] = [];
     name : string = "";
-    valueAtk : Number = 0;
-    valueDef : Number = 0;
-    valueVit : Number = 0;
-    ValueMaxLife : Number = 0;
-    life : Number = 0
+    valueAtk : number = 0;
+    valueDef : number = 0;
+    valueVit : number = 0;
+    valueMaxLife : number = 0;
+    life : number = 100
+    mana: number = 0
+    alive : boolean = true
 
     UseItem() {
 
@@ -15,5 +17,7 @@ class Perso {
         
     }
 
-    
+    isAlive() {
+        if (this.life == 0) {this.alive = false}
+    }
 }
