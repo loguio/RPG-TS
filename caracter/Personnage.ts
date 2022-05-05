@@ -1,5 +1,4 @@
-class Perso {
-    invetory : Object[] = [];
+export default class Perso {
     name : string;
     valueAtk : number = 80;
     valueDef : number = 50;
@@ -7,6 +6,7 @@ class Perso {
     ValueMaxLife : number = 100;
     life : number = 100
     alive : boolean = true
+
     constructor(name:string = ""){
         this.name = name;
     }
