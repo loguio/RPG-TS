@@ -1,4 +1,4 @@
-import {Perso} from "./caracter/Personnage.ts";
+import Perso from "./caracter/Personnage.ts";
 export default class Menu {
     showCharacter() {
         
