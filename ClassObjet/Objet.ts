@@ -1,3 +1,3 @@
-class Objet {
+export default class Objet {
     
 }
