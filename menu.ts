@@ -1,11 +1,14 @@
 import {Perso} from "./caracter/Personnage.ts";
-export class Menu {
+export default class Menu {
     showCharacter() {
 
     }
     
-    menuFight() {
-
+    public static menuFight() {
+        let choose = prompt("What do you want to do ? : \n1.Use Item\n2.Make an attack\n3.Make an magic attack \n")
+        if (choose == "1" ) {
+            Menu.showItem()
+        }
     }
 
     showMenu() {
@@ -16,16 +19,18 @@ export class Menu {
 
     }
 
-    useItems() {
+
+    public static showItem() {
+        let choose = prompt(`What item do you want to use ? `)
         
     }
+
     choice: string[]=[];
     team: Perso[] = [];
     chooseCharacter(): Perso[] {
         while (this.choice.length < 3) {
             console.log("Choose your character by typing the number of the character you want to play");
-            console.log("1. Guerrier \n2. Mage \n3. Paladin \n4. Barbare \n5. Prêtre \n6. Voleur");
-            let temp = prompt("Votre choix :");
+            let temp = prompt("1. Guerrier \n2. Mage \n3. Paladin \n4. Barbare \n5. Prêtre \n6. Voleur\nVotre choix :");
             if (temp != null && temp != "" && temp >= "1" && temp <= "6" && temp.length == 1) {
                 if (this.choice[0] == temp || this.choice[1] == temp) {
                     console.log("vous ne pouvez pas choisir deux fois le même personnage");

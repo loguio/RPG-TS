@@ -1,6 +1,9 @@
-import {Menu} from "./menu.ts";
-import {Perso} from "./caracter/Personnage.ts";
+import Menu from "./menu.ts";
+import Objets from "./ClassObjet/Objet.ts"
+import Potion from "./ClassObjet/potion.ts"
+
 class GameManager {
+    inventory : Objets[] = [new Potion(), new Potion(), new Potion()]
     equipe: Perso[] = [];
     startGame() {
         this.equipe = new Menu().chooseCharacter();

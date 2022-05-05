@@ -1,4 +1,4 @@
-export class Perso {
+class Perso {
     invetory : Object[] = [];
     name : string;
     valueAtk : number = 80;
@@ -6,6 +6,7 @@ export class Perso {
     valueVit : number = 0;
     ValueMaxLife : number = 100;
     life : number = 100
+    alive : boolean = true
     constructor(name:string = ""){
         this.name = name;
     }
@@ -18,5 +19,9 @@ export class Perso {
     }
     Heal() {
         this.life += 0.2*this.ValueMaxLife;
+    }
+
+    isAlive() {
+        if (this.life == 0) {this.alive = false}
     }
 }
