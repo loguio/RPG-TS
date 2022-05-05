@@ -1,3 +1,4 @@
-class Voleur {
+import {Perso} from "./Personnage.ts";
+class Voleur extends Perso{
     
 }

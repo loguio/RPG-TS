@@ -1,17 +1,27 @@
 export class Perso {
     invetory : Object[] = [];
-    name : string = "";
-    valueAtk : Number = 0;
-    valueDef : Number = 0;
-    valueVit : Number = 0;
-    ValueMaxLife : Number = 0;
-    life : Number = 0
-
+    name : string;
+    valueAtk : number = 80;
+    valueDef : number = 50;
+    valueVit : number = 0;
+    ValueMaxLife : number = 100;
+    life : number = 100
+    alive : boolean = true
+    constructor(name:string = ""){
+        this.name = name;
+    }
     UseItem() {
 
     }
+    
+    Attack(enemy : any) {
+        enemy.life -= (this.valueAtk - enemy.valueDef);
+    }
+    Heal() {
+        this.life += 0.2*this.ValueMaxLife;
+    }
 
-    Attack() {
-        
+    isAlive() {
+        if (this.life == 0) {this.alive = false}
     }
 }
