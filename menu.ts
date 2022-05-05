@@ -1,3 +1,4 @@
+import {Perso} from "./caracter/Personnage.ts";
 export class Menu {
     showCharacter() {
 
@@ -19,7 +20,8 @@ export class Menu {
         
     }
     choice: string[]=[];
-    chooseCharacter(): string[] {
+    team: Perso[] = [];
+    chooseCharacter(): Perso[] {
         while (this.choice.length < 3) {
             console.log("Choose your character by typing the number of the character you want to play");
             console.log("1. Guerrier \n2. Mage \n3. Paladin \n4. Barbare \n5. Prêtre \n6. Voleur");
@@ -34,26 +36,20 @@ export class Menu {
         }
         for (let i = 0; i < this.choice.length; i++) {
             if (this.choice[i] == "1") {
-                this.choice[i] = "Guerrier";
-                
+                this.team.push(new Perso("Guerrier"));
             } else if (this.choice[i] == "2") {
-                this.choice[i] = "Mage";
-                
+                this.team.push(new Perso("Mage"));
             } else if (this.choice[i] == "3") {
-                this.choice[i] = "Paladin";
-                
+                this.team.push(new Perso("Paladin"));
             } else if (this.choice[i] == "4") {
-                this.choice[i] = "Barbare";
-                
+                this.team.push(new Perso("Barbare"));
             } else if (this.choice[i] == "5") {
-                this.choice[i] = "Prêtre";
-               
+                this.team.push(new Perso("Prêtre"));
             } else if (this.choice[i] == "6") {
-                this.choice[i] = "Voleur";
-                    
+                this.team.push(new Perso("Voleur"));  
             }            
         }
-        return this.choice  
+        return this.team  
     }
     constructor(){}
 }

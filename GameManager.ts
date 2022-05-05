@@ -1,17 +1,20 @@
 import {Menu} from "./menu.ts";
-
+import {Perso} from "./caracter/Personnage.ts";
 class GameManager {
-    equipe: string[] = [];
+    equipe: Perso[] = [];
     startGame() {
         this.equipe = new Menu().chooseCharacter();
-        console.log(this.equipe);
+        this.fight()
     }
-
+    
+    ekip: Perso[] = [];
     fight() {
-        
+        this.equipe[0].Attack(this.ekip[1]);
+        this.equipe[0].Attack(this.ekip[1]);
+        this.equipe[1].Heal();
     }
-    constructor() {
+    constructor(){
         this.startGame();
     }
-}
-let gameManager = new GameManager();
+}   
+let gameManager = new GameManager();    
