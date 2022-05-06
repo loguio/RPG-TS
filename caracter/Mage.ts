@@ -1,5 +1,5 @@
-import {Perso} from "./Personnage.ts";
+import Perso from "./Personnage.ts";
 
-class Mage extends Perso{
-    
+export default class Mage extends Perso {
+    name : string = "Mage";
 }

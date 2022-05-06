@@ -1,4 +1,4 @@
-import {Perso} from "./Personnage.ts";
-class Barbare extends Perso{
-    
+import Perso from "./Personnage.ts";
+export default class Barbare extends Perso{
+    name : string = "Barbare";
 }

@@ -1,5 +1,5 @@
-import {Perso} from "./Personnage.ts";
+import Perso from "./Personnage.ts";
 
-class Guerrier extends Perso {
-    
+export default class Guerrier extends Perso {
+    name :  string = "Guerrier";
 }
