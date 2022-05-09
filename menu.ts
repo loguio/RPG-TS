@@ -1,14 +1,13 @@
 import Perso from "./caracter/Personnage.ts";
 export default class Menu {
+
     showCharacter() {
         
     }
-    
+
     public static menuFight() {
         let choose = prompt("What do you want to do ? : \n1.Use Item\n2.Make an attack\n3.Make an magic attack \n")
-        if (choose == "1" ) {
-            Menu.showItem()
-        }
+        return choose
     }
 
     /**
@@ -24,10 +23,12 @@ export default class Menu {
 
     }
 
+    showAttack(damage : number,perso1 : string,perso2 : string) {
+        console.log(`${perso1} a infligé ${damage} point de dégats à ${perso2}`)
+    }
 
-    public static showItem() {
+    showItem() {
         let choose = prompt(`What item do you want to use ? `)
-        
     }
     /**
      * variable qui va contenir les choix du joueur
