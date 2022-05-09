@@ -1,4 +1,12 @@
-import {Perso} from "./Personnage.ts";
-class Paladin extends Perso{
-    
+import Perso from "./Personnage.ts";
+export default class Paladin extends Perso {
+    name : string = "Paladin";
+    sainte : number = 0;
+    Sainte() {
+        this.sainte = (this.valueAtk - this.valueDef)*0.4;
+    }
 }
+
+// Le paladin aura une attaque moins élevée que le guerrier et une défenselégèrement plus élevée. 
+// Il possèdera une attaque sainte qui ciblera tous lesennemis, leur infl igeant 40% des dégats 
+// d'une attaque physique ((attaque -défense adverse)*0.4)
