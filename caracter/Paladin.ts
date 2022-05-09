@@ -1,6 +1,10 @@
 import Perso from "./Personnage.ts";
 export default class Paladin extends Perso {
     name : string = "Paladin";
+    sainte : number = 0;
+    Sainte() {
+        this.sainte = (this.valueAtk - this.valueDef)*0.4;
+    }
 }
 
 // Le paladin aura une attaque moins élevée que le guerrier et une défenselégèrement plus élevée. 

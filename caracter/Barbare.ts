@@ -1,6 +1,11 @@
 import Perso from "./Personnage.ts";
 export default class Barbare extends Perso{
     name : string = "Barbare";
+    berserk : number = 0;
+    Berserk(){
+        this.berserk = (this.valueAtk - this.valueDef)*1.3;
+        this.valueDef = this.valueDef - this.valueDef*0.2;
+    }
 }
 
 // Le barbare aura une défense faible et une attaque plus élevée encore que leguerrier. 
