@@ -64,6 +64,5 @@ class Fight {
         
     }
 }
-
 const test = new Fight 
-test.fight()
+test.AllyFight()

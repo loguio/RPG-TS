@@ -1,8 +1,5 @@
 export default class Perso {
-<<<<<<< HEAD
-=======
     invetory : Object[] = [];
->>>>>>> a6b381e98fceee876c6c92d6a1482ac95f5f3af0
     name : string;
     valueAtk : number = 80;
     valueAtkMagic : number = 40;
@@ -11,12 +8,8 @@ export default class Perso {
     ValueMaxLife : number = 100;
     life : number = 100
     alive : boolean = true
-<<<<<<< HEAD
-
-=======
     valuemagie : number = 0;
     chance : number = 100;
->>>>>>> a6b381e98fceee876c6c92d6a1482ac95f5f3af0
     constructor(name:string = ""){
         this.name = name;
     }
