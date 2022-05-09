@@ -3,7 +3,7 @@ import Menu from "./menu.ts";
 import Inventory from "./inventory.ts"
 
 
-class Fight {
+export default class Fight {
 
     menu : Menu = new Menu()
     inventory : Inventory = new Inventory()

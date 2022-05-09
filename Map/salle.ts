@@ -10,7 +10,8 @@ export default class Salle {
     salle(gameManager: GameManager){
         if (gameManager.place == 1 || gameManager.place == 3) {
             let fight = new Fight();
-            fight.Fight()
+            fight.fight()
+            console.log("Des monstre sont apparu, ils vous attaquent !")
             gameManager.place = 1;
         }
         else if (gameManager.place == 2 || gameManager.place == 4) {
