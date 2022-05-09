@@ -7,7 +7,7 @@ export default class Inventory {
     showInventory() {
         if (this.inventory.length == 0) {return}
         for (let index = 1; index <= this.inventory.length; index++) {
-            console.log(` ${index}. ${this.inventory[index-1]}`)
+            console.log(` ${index}. ${this.inventory[index-1].name}`)
         }
         let choose : string | number | null = prompt("what do you want to choose ? >")
         if (choose != null && parseInt(choose) <= this.inventory.length) {

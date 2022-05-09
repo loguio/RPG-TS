@@ -40,8 +40,13 @@ class Fight {
         return false
     }
 
-    Fight() {
-        // while (this.AllyTeamAlive() == true && this.EnnemiesTeamAlive() == true) {
+    fight() {
+        while (this.AllyTeamAlive() == true && this.EnnemiesTeamAlive() == true) {
+            
+        }
+    }
+
+    AllyFight() {
             let choose : string | null = Menu.menuFight()
             while(choose == null ) {choose = Menu.menuFight()}
             if (choose == "1") {
@@ -51,12 +56,14 @@ class Fight {
             }else if (choose == "3") {
                 if (this.magic() == false) {
                     console.log("Vous ne pouvea pas utilisez d'attaque magique !")
-                    this.Fight()
-                }
-            }else {this.Fight()}
-        // }
+                    this.AllyFight()}
+            }else {this.AllyFight()}
+    }
+
+    EnnemieFight() {
+        
     }
 }
 
 const test = new Fight 
-test.Fight()
+test.fight()
