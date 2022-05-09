@@ -34,6 +34,8 @@ class Fight {
         // while (this.AllyTeamAlive() == true && this.EnnemiesTeamAlive() == true) {
             if (Menu.menuFight() == "1") {
                 this.showInventory()
+            }else if (Menu.menuFight() == "2") {
+                this.showAttack()
             }
         // }
     }
@@ -47,6 +49,10 @@ class Fight {
         if (choose != null && parseInt(choose) <= this.inventory.length) {
             this.inventory.splice(parseInt(choose)-1,1)
         }
+    }
+
+    showAttack() {
+        
     }
 }
 
