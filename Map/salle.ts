@@ -2,15 +2,15 @@ import Perso from "../caracter/Personnage.ts";
 import Coffre from "./Coffre.ts";
 import Fight from "../fight.ts";
 import GameManager from "../GameManager.ts";
+import Monster from "../caracter/Monstre.ts"
 
 export default class Salle {
-    Monstres : Perso[] = []
+    Monstres : Perso[] = [new Monster(), new Monster(), new Monster()]
     Chest : Coffre | null = null
-    constructor() {}
     salle(gameManager: GameManager){
         if (gameManager.place == 1 || gameManager.place == 3) {
             let fight = new Fight();
-            fight.Fight()
+            fight.fight(this.Monstres,this.Monstres)
             gameManager.place = 1;
         }
         else if (gameManager.place == 2 || gameManager.place == 4) {
