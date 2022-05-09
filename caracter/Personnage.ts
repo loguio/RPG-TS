@@ -1,7 +1,7 @@
 export default class Perso {
     invetory : Object[] = [];
     name : string;
-    valueAtk : number = 30;
+    valueAtk : number = 80;
     valueAtkMagic : number = 40;
     valueDef : number = 50;
     valueVit : number = 0;
