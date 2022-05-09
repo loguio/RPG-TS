@@ -9,6 +9,7 @@ export default class Perso {
     life : number = 100
     alive : boolean = true
     valuemagie : number = 0;
+    chance : number = 100;
     constructor(name:string = ""){
         this.name = name;
     }
