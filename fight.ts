@@ -1,16 +1,17 @@
 import Perso from "./caracter/Personnage.ts";
 import Menu from "./menu.ts";
-import Inventory from "./GameManager.ts"
+import Inventory from "./inventory.ts"
 
 
 class Fight {
 
-    tempo : Inventory = new Inventory()
-
-    inventory : Object[] = this.tempo.inventory
+    menu : Menu = new Menu()
+    inventory : Inventory = new Inventory()
 
     Ally : Perso[]  = []
     Ennemies : Perso[] = []
+
+
 
     AllyTeamAlive() {
         for (const element of this.Ally) {
@@ -21,6 +22,7 @@ class Fight {
         return false
     }
 
+    
     EnnemiesTeamAlive() {
         for (const element of this.Ennemies) {
             if (element.alive == true) {
@@ -30,29 +32,29 @@ class Fight {
         return false
     }
 
+    magic() {
+        this.Ally.forEach(element => {
+            if (element.name == "Mage")
+            return true
+        });
+        return false
+    }
+
     Fight() {
         // while (this.AllyTeamAlive() == true && this.EnnemiesTeamAlive() == true) {
-            if (Menu.menuFight() == "1") {
-                this.showInventory()
-            }else if (Menu.menuFight() == "2") {
-                this.showAttack()
-            }
+            let choose : string | null = Menu.menuFight()
+            while(choose == null ) {choose = Menu.menuFight()}
+            if (choose == "1") {
+                this.inventory.showInventory()
+            }else if (choose == "2") {
+                this.menu.showAttack(20,"Flavio","Marius")
+            }else if (choose == "3") {
+                if (this.magic() == false) {
+                    console.log("Vous ne pouvea pas utilisez d'attaque magique !")
+                    this.Fight()
+                }
+            }else {this.Fight()}
         // }
-    }
-
-    showInventory() {
-        if (this.inventory.length == 0) {return}
-        for (let index = 1; index <= this.inventory.length; index++) {
-            console.log(` ${index}. ${this.inventory[index-1]}`)
-        }
-        let choose : string | number | null = prompt("what do you want to choose ? >")
-        if (choose != null && parseInt(choose) <= this.inventory.length) {
-            this.inventory.splice(parseInt(choose)-1,1)
-        }
-    }
-
-    showAttack() {
-        
     }
 }
 

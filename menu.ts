@@ -19,6 +19,9 @@ export default class Menu {
 
     }
 
+    showAttack(damage : number,perso1 : string,perso2 : string) {
+        console.log(`${perso1} a infligé ${damage} point de dégats à ${perso2}`)
+    }
 
     showItem() {
         let choose = prompt(`What item do you want to use ? `)
