@@ -1,7 +1,7 @@
 import Perso from "./caracter/Personnage.ts";
 export default class Menu {
     showCharacter() {
-
+        
     }
     
     public static menuFight() {

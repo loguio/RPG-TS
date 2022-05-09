@@ -26,7 +26,9 @@ export default class Perso {
     Heal() {
         this.life += 0.2*this.ValueMaxLife;
     }
-
+    Trap(){
+        this.life -= 50;
+    }
     isAlive() {
         if (this.life == 0) {this.alive = false}
     }

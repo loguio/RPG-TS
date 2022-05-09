@@ -5,7 +5,7 @@ import Perso from "./caracter/Personnage.ts"
 import Fight from "./fight.ts";
 import Salle from "./Map/salle.ts";
 
-class GameManager {
+export default class GameManager {
     inventory : Objets[] = [new Potion(), new Potion(), new Potion()]
     /**
      * Initialise la liste qui va contenir l'équipe du joueur
@@ -15,13 +15,20 @@ class GameManager {
     /**
      * @type {number} Variable qui contient dans quelle salle est le joueur
      */
-    place: number = 1;
+    private _place: number = 1;
+    public get place(): number {
+        return this._place;
+    }
+    public set place(value: number) {
+        this._place += value;
+    }
     startGame() {
         this.equipe = new Menu().chooseCharacter();//lance et initialise le menu de choix de personnage
         console.log(this.equipe)
         let salle = new Salle();
-        salle.salle(this.place);
-
+        salle.salle(this);//lance la salle et initialise la place du joueur
+        salle.salle(this);
+        console.log(this.equipe)
     }
     constructor(){
         this.startGame();//lance le jeu
