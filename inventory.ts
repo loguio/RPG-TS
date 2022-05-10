@@ -14,4 +14,9 @@ export default class Inventory {
             this.inventory.splice(parseInt(choose)-1,1)
         }
     }
+
+    addItem(item : Objets) {
+        this.inventory.push(item)
+    }
+
 }

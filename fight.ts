@@ -62,22 +62,22 @@ export default class Fight {
     }
 
     AllyFight() {
-            let choose : string | null = Menu.menuFight()
-            while(choose == null ) {choose = Menu.menuFight()}
-            if (choose == "1") {
-                this.inventory.showInventory()
-            }else if (choose == "2") {
-                this.menu.showAttack(20,"Flavio","Marius")
-            }else if (choose == "3") {
-                if (this.magic() == false) {
-                    console.log("Vous ne pouvea pas utilisez d'attaque magique !")
-                    this.AllyFight()}
-            }else {this.AllyFight()}
+        let choose : string | null = Menu.menuFight()
+        while(choose == null ) {choose = Menu.menuFight()}
+        if (choose == "1") {
+            this.inventory.showInventory()
+        }else if (choose == "2") {
+            this.menu.showAttack(20,"Flavio","Marius")
+        }else if (choose == "3") {
+            if (this.magic() == false) {
+                console.log("Vous ne pouvea pas utilisez d'attaque magique !")
+                this.AllyFight()}
+        }else {this.AllyFight()}
     }
 
     EnnemieFight() {
         
     }
 }
-// const test = new Fight 
-// test.AllyFight()
+const test = new Fight 
+test.AllyFight()
