@@ -7,11 +7,12 @@ export default class Perso {
     valueVit : number = 0;
     ValueMaxLife : number = 100;
     life : number = 100
-    alive : boolean = true
     valuemagie : number = 0;
     chance : number = 100;
-    constructor(name:string = ""){
+    side : string;
+    constructor(name:string = "",side:string = "") {
         this.name = name;
+        this.side = side;
     }
     UseItem() {
 
@@ -32,7 +33,7 @@ export default class Perso {
     Trap(){
         this.life -= 50;
     }
-    isAlive() {
-        if (this.life == 0) {this.alive = false}
+    isAlive() : boolean {
+        if (this.life == 0) {return false}else{return true}
     }
 }

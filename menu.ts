@@ -16,6 +16,15 @@ export default class Menu {
         let choose = prompt("What do you want to do ? : \n1.Use Item\n2.Make an attack\n3.Make an magic attack \n")
         return choose
     }
+    public static chooseCara2Attack(enemies : Perso[]):Perso {
+    for (let index = 0; index < enemies.length; index++) {
+        if (enemies[index].isAlive()) {
+            console.log(`${index + 1}. ${enemies[index].name}`);
+        }               
+    }
+        let choose = prompt("Choose your enemie to attack by typing the number >");
+        // return choose
+    }  
     /**
      * Permet de 
      */

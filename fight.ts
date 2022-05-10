@@ -24,7 +24,7 @@ export default class Fight {
 
     AllyTeamAlive() {
         for (const element of this.Ally) {
-            if (element.alive == true) {
+            if (element.isAlive()) {
                 return true
             }
         }
@@ -34,7 +34,7 @@ export default class Fight {
     
     EnnemiesTeamAlive() {
         for (const element of this.Ennemies) {
-            if (element.alive == true) {
+            if (element.isAlive()) {
                 return true
             }
         }
@@ -53,12 +53,18 @@ export default class Fight {
         this.Ally = ally
         this.Ennemies = ennemies
         this.Order()
+        let i :number = 0
         while (this.AllyTeamAlive() == true && this.EnnemiesTeamAlive() == true) {
-            this.AllyFight()
-            this.EnnemieFight()
+            if (this.goodOrder[i].side == "ally" && this.goodOrder[i].isAlive()) {
+                this.AllyFight()
+            }else if (this.goodOrder[i].side == "ennemy" && this.goodOrder[i].isAlive()) {
+                this.EnnemieFight()
+            }
+            if (i == this.goodOrder.length-1) {i = 0}else{i++}
         }
         if (this.AllyTeamAlive()) {console.log(" Bravo vous avez gagnez le combat ! ")}
-        else {console.log("Mince vous avez perdu...")}
+            else {console.log("Mince vous avez perdu...")}
+        
     }
 
     AllyFight() {
