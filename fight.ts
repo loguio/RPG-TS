@@ -79,5 +79,5 @@ export default class Fight {
         
     }
 }
-const test = new Fight 
-test.AllyFight()
+// const test = new Fight 
+// test.AllyFight()
