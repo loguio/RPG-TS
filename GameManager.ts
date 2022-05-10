@@ -24,17 +24,15 @@ export default class GameManager {
     }
     startGame() {
         this.equipe = new Menu().chooseCharacter();//lance et initialise le menu de choix de personnage
-        console.log(this.equipe)
         let salle = new Salle();
         for (let i = 0; i < 5; i++) {
             salle.salle(this);
         }
-        console.log(this.equipe)
         console.log("Vous avez gagné !")
     }
     constructor(){
         this.startGame();//lance le jeu
     }
 }
-// let gameManager = new GameManager();
+let gameManager = new GameManager();
 // gameManager.startGame()

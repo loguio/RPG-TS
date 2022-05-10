@@ -4,12 +4,18 @@ export default class Menu {
     showCharacter() {
         
     }
+    public static question(question : string):string {
+        let resp = null
+        while (resp == null){
+            resp = prompt(question)
+        }
+        return resp
+    }
 
     public static menuFight() {
         let choose = prompt("What do you want to do ? : \n1.Use Item\n2.Make an attack\n3.Make an magic attack \n")
         return choose
     }
-
     /**
      * Permet de 
      */
