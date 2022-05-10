@@ -3,6 +3,7 @@ export default class Perso {
     name : string;
     valueAtk : number = 80;
     valueAtkMagic : number = 40;
+    valueAtkZone : number = 10;
     valueDef : number = 50;
     valueVit : number = 0;
     ValueMaxLife : number = 100;
