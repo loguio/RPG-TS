@@ -1,15 +1,14 @@
 export default class Perso {
-    invetory : Object[] = [];
     name : string;
     valueAtk : number = 80;
     valueAtkMagic : number = 40;
     valueDef : number = 50;
     valueVit : number = 0;
     ValueMaxLife : number = 100;
-    life : number = 100
-    alive : boolean = true
+    life : number = 30
     valuemagie : number = 0;
     chance : number = 100;
+    team : string = "ally"
     constructor(name:string = ""){
         this.name = name;
     }
@@ -20,8 +19,8 @@ export default class Perso {
      * Fonction pour attaquer un personnage
      * @param enemy l'ennemi que le personnage va attaquer
      */
-    Attack(enemy : any) {
-        enemy.life -= (this.valueAtk - enemy.valueDef);
+    Attack(enemy : Perso) {
+        enemy.life = Math.max(enemy.life - (this.valueAtk - enemy.valueDef),0);
     }
     /**
      * Fonction pour soigner un personnage  
@@ -32,7 +31,7 @@ export default class Perso {
     Trap(){
         this.life -= 50;
     }
-    isAlive() {
-        if (this.life == 0) {this.alive = false}
+    isAlive()  : boolean{
+        if (this.life == 0) {return false} return true
     }
 }

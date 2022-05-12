@@ -12,8 +12,8 @@ export default class Salle {
         console.log("Vous rentrez dans une salle")
         if (gameManager.place == 1 || gameManager.place == 3) {
             let fight = new Fight();
-            fight.fight(gameManager.equipe,this.Monstres)
             console.log("Des monstre sont apparu, ils vous attaquent !")
+            fight.fight(gameManager.equipe,this.Monstres)
             gameManager.place = 1;
         }
         else if (gameManager.place == 2 || gameManager.place == 4) {

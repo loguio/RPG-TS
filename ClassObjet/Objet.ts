@@ -1,3 +1,11 @@
+import Perso from "../caracter/Personnage.ts"
+
 export default class Objet {
-    name : string = ""
+    name : string = "Potion"
+    heal : number = 50;
+
+
+    Healing(ally : Perso){
+        ally.life = Math.min(ally.life+this.heal,ally.ValueMaxLife)
+    }
 }

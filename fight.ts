@@ -1,7 +1,7 @@
 import Perso from "./caracter/Personnage.ts";
 import Menu from "./menu.ts";
 import Inventory from "./inventory.ts"
-
+import Item from "./ClassObjet/Objet.ts"
 
 export default class Fight {
 
@@ -24,7 +24,7 @@ export default class Fight {
 
     AllyTeamAlive() {
         for (const element of this.Ally) {
-            if (element.alive == true) {
+            if (element.isAlive()) {
                 return true
             }
         }
@@ -34,7 +34,7 @@ export default class Fight {
     
     EnnemiesTeamAlive() {
         for (const element of this.Ennemies) {
-            if (element.alive == true) {
+            if (element.isAlive()) {
                 return true
             }
         }
@@ -53,31 +53,41 @@ export default class Fight {
         this.Ally = ally
         this.Ennemies = ennemies
         this.Order()
-        while (this.AllyTeamAlive() == true && this.EnnemiesTeamAlive() == true) {
-            this.AllyFight()
-            this.EnnemieFight()
+        let order = 0
+        while (this.AllyTeamAlive() && this.EnnemiesTeamAlive()) {
+            if (this.goodOrder[order].isAlive() && this.goodOrder[order].team == "ally") {
+                this.AllyFight(this.goodOrder[order])
+            }else if (this.goodOrder[order].isAlive()) {
+                this.EnnemieFight(this.goodOrder[order])
+            }
+            if (order == this.goodOrder.length-1) {order = 0} else {order++}
         }
         if (this.AllyTeamAlive()) {console.log(" Bravo vous avez gagnez le combat ! ")}
         else {console.log("Mince vous avez perdu...")}
     }
 
-    AllyFight() {
+    AllyFight(ally : Perso) {
         let choose : string | null = Menu.menuFight()
         while(choose == null ) {choose = Menu.menuFight()}
         if (choose == "1") {
-            this.inventory.showInventory()
+            this.inventory.showInventory(this.Ally)
         }else if (choose == "2") {
-            this.menu.showAttack(20,"Flavio","Marius")
+            for (let index = 0; index < this.Ennemies.length; index++) {
+                console.log(`${index+1}. ${this.Ennemies[index].name}`)
+            }
+            let choose :string | null= prompt("qui voulez vous attaquer ? >")
+            if (choose != null || choose == "1" || choose == "2" || choose == "3" ) {
+                ally.Attack(this.Ennemies[parseInt(choose)-1])
+                console.log(this.Ennemies[parseInt(choose)-1])
+            }
         }else if (choose == "3") {
             if (this.magic() == false) {
                 console.log("Vous ne pouvea pas utilisez d'attaque magique !")
-                this.AllyFight()}
-        }else {this.AllyFight()}
+                this.AllyFight(ally)}
+        }else {this.AllyFight(ally)}
     }
 
-    EnnemieFight() {
+    EnnemieFight(ennemi : Perso) {
         
     }
 }
-// const test = new Fight 
-// test.AllyFight()
