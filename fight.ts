@@ -89,6 +89,10 @@ export default class Fight {
     }
 
     EnnemieFight(ennemi : Perso) {
-        
+        let tempo : Perso = this.Ally[Math.floor(Math.random()*3)]
+        while(!tempo.isAlive) {
+            tempo = this.Ally[Math.floor(Math.random()*3)]
+        }
+        ennemi.Attack(tempo)
     }
 }

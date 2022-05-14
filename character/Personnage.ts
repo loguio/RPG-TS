@@ -12,15 +12,12 @@ export default class Perso {
     constructor(name:string = ""){
         this.name = name;
     }
-    UseItem() {
-
-    }
     /**
      * Fonction pour attaquer un personnage
      * @param enemy l'ennemi que le personnage va attaquer
      */
     Attack(enemy : Perso) {
-        if (this.valueAtk <= enemy.valueDef) {enemy.valueDef =- this.valueAtk/4;console.log("l'ennemie a perdu de l'armure")}
+        if (this.valueAtk <= enemy.valueDef) {enemy.valueDef = Math.max(0,enemy.valueDef - (this.valueAtk/4) ); console.log("l'ennemie a perdu de l'armure")}
         else {enemy.life = Math.max(enemy.life - (this.valueAtk - enemy.valueDef),0)};
     }
     /**

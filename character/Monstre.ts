@@ -1,4 +1,3 @@
-import Perso from "./Personnage.ts";
 export default class Monstre {
     name : string = "Monstre qui fait peur !!!"
     valueAtk : number = 40;
@@ -19,7 +18,7 @@ export default class Monstre {
      * @param enemy l'ennemi que le personnage va attaquer
      */
     Attack(enemy : any) {
-        enemy.life -= (this.valueAtk - enemy.valueDef);
+        enemy.life = Math.max(enemy.life - (Math.max(this.valueAtk - enemy.valueDef,0)),0);
     }
     /**
      * Fonction pour soigner un personnage  
