@@ -1,12 +1,11 @@
 import Monstre from "./Monstre.ts"
 export default class Boss extends Monstre{
     name : string = "Boss";
-    ValueMaxLife = 400
-    life = 400
+    ValueMaxLife = 300
+    life = 300
     valueAtk = 70
     valueDef = 50
     valueVit = 100
-
 }
 
 // Mettre les points de vie à 500

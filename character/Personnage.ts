@@ -4,8 +4,8 @@ export default class Perso {
     valueAtkMagic : number = 40;
     valueDef : number = 25;
     valueVit : number = 0;
-    ValueMaxLife : number = 100;
-    life : number = 30
+    ValueMaxLife : number = 150;
+    life : number = 150
     valuemagie : number = 0;
     chance : number = 100;
     team : string = "ally"
