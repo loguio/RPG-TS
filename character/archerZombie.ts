@@ -6,6 +6,6 @@ export default class ArcherZombie extends Monstre{
     life = 80
     valueAtk = 40
     valueDef = 10
-    valueVit = 100
+    valueVit = 30
 
 }

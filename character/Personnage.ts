@@ -20,7 +20,8 @@ export default class Perso {
      * @param enemy l'ennemi que le personnage va attaquer
      */
     Attack(enemy : Perso) {
-        enemy.life = Math.max(enemy.life - (this.valueAtk - enemy.valueDef),0);
+        if (this.valueAtk <= enemy.valueDef) {enemy.valueDef =- this.valueAtk/4;console.log("l'ennemie a perdu de l'armure")}
+        else {enemy.life = Math.max(enemy.life - (this.valueAtk - enemy.valueDef),0)};
     }
     /**
      * Fonction pour soigner un personnage  
