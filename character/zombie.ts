@@ -1,11 +1,11 @@
 import Monstre from "./Monstre.ts"
 
 export default class Zombie extends Monstre{
-    name : string = "Boss";
-    ValueMaxLife = 400
-    life = 400
-    valueAtk = 70
-    valueDef = 50
-    valueVit = 100
+    name : string = "Zombie";
+    ValueMaxLife = 100
+    life = 100
+    valueAtk = 40
+    valueDef = 10
+    valueVit = 40
 
 }

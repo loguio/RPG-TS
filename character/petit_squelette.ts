@@ -1,11 +1,11 @@
 import Monstre from "./Monstre.ts"
 
 export default class LittleSqueleton extends Monstre{
-    name : string = "Boss";
-    ValueMaxLife = 400
-    life = 70
-    valueAtk = 50
-    valueDef = 50
-    valueVit = 100
+    name : string = "LittleSqueleton";
+    ValueMaxLife = 50
+    life = 50
+    valueAtk = 30
+    valueDef = 0
+    valueVit = 20
 
 }

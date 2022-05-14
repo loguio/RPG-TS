@@ -8,7 +8,7 @@ export default class createMonster {
     public static createMonster() : Monstre[]  {
         const listMonster : Monstre[] = []
         const listChoice : Monstre[] = [new ArcherZombie(),new Zombie(),new GiantSqueleton(), new LittleSqueleton()]
-        listMonster.push(listChoice[Math.floor(Math.random()*4)])
+        for (let index = 0; index < 3; index++) {listMonster.push(listChoice[Math.floor(Math.random()*4)])} 
         return listMonster
     }
 }
