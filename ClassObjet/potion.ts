@@ -1,5 +1,5 @@
 import Objet from "./Objet.ts"
-import Perso from "../caracter/Personnage.ts"
+import Perso from "../character/Personnage.ts"
 
 export default class Potion extends Objet {
     heal : number = 50;

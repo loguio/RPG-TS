@@ -1,7 +1,7 @@
-import Perso from "./caracter/Personnage.ts";
+import Perso from "./character/Personnage.ts";
 import Menu from "./menu.ts";
 import Inventory from "./inventory.ts"
-import Item from "./ClassObjet/Objet.ts"
+import Monster from "./character/Monstre.ts"
 
 export default class Fight {
 
@@ -9,7 +9,7 @@ export default class Fight {
     inventory : Inventory = new Inventory()
 
     Ally : Perso[]  = []
-    Ennemies : Perso[] = []
+    Ennemies : Monster[] = []
     goodOrder : Perso[]= []
 
     Order() {
@@ -49,8 +49,9 @@ export default class Fight {
         return false
     }
 
-    fight(ally : Perso[],ennemies : Perso[]) {
+    fight(ally : Perso[],ennemies : Monster[], inventory : Inventory) {
         this.Ally = ally
+        this.inventory = inventory
         this.Ennemies = ennemies
         this.Order()
         let order = 0

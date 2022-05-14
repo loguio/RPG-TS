@@ -1,4 +1,4 @@
-import Perso from "../caracter/Personnage.ts"
+import Perso from "../character/Personnage.ts"
 
 export default class Objet {
     name : string = "Potion"

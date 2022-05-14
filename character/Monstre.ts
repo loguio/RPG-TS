@@ -1,9 +1,9 @@
 import Perso from "./Personnage.ts";
-export default class Monstre extends Perso{
+export default class Monstre {
     name : string = "Monstre qui fait peur !!!"
-    valueAtk : number = 80;
+    valueAtk : number = 40;
     valueAtkMagic : number = 40;
-    valueDef : number = 50;
+    valueDef : number = 20;
     valueVit : number = 0;
     ValueMaxLife : number = 100;
     life : number = 100

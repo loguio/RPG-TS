@@ -1,6 +1,6 @@
 import Objets from "./ClassObjet/Objet.ts"
 import Potion from "./ClassObjet/potion.ts"
-import Perso from "./caracter/Personnage.ts"
+import Perso from "./character/Personnage.ts"
 
 export default class Inventory {
     inventory : Objets[] = [new Potion(), new Potion(), new Potion()]
