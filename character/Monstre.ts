@@ -1,19 +1,20 @@
-export default class Perso {
-    invetory : Object[] = [];
-    name : string;
-    valueAtk : number = 80;
+export default class Monstre {
+    name : string = "Monstre qui fait peur !!!"
+    valueAtk : number = 40;
     valueAtkMagic : number = 40;
+<<<<<<< HEAD:caracter/Personnage.ts
     valueAtkZone : number = 10;
     valueDef : number = 50;
+=======
+    valueDef : number = 20;
+>>>>>>> 01335de9fec9abaaa68f7a682a16f18c189116aa:character/Monstre.ts
     valueVit : number = 0;
     ValueMaxLife : number = 100;
     life : number = 100
-    alive : boolean = true
     valuemagie : number = 0;
     chance : number = 100;
-    constructor(name:string = ""){
-        this.name = name;
-    }
+    team : string = "ennemi"
+
     UseItem() {
 
     }
@@ -22,7 +23,7 @@ export default class Perso {
      * @param enemy l'ennemi que le personnage va attaquer
      */
     Attack(enemy : any) {
-        enemy.life -= (this.valueAtk - enemy.valueDef);
+        enemy.life = Math.max(enemy.life - (Math.max(this.valueAtk - enemy.valueDef,0)),0);
     }
     /**
      * Fonction pour soigner un personnage  
@@ -33,7 +34,7 @@ export default class Perso {
     Trap(){
         this.life -= 50;
     }
-    isAlive() {
-        if (this.life == 0) {this.alive = false}
+    isAlive()  : boolean{
+        if (this.life == 0) {return false} return true
     }
 }

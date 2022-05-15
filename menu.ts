@@ -1,15 +1,21 @@
-import Perso from "./caracter/Personnage.ts";
+import Perso from "./character/Personnage.ts";
 export default class Menu {
 
     showCharacter() {
         
     }
-
-    public static menuFight() {
-        let choose = prompt("What do you want to do ? : \n1.Use Item\n2.Make an attack\n3.Make an magic attack \n")
-        return choose
+    public static question(question : string):string {
+        let resp = null
+        while (resp == null){
+            resp = prompt(question)
+        }
+        return resp
     }
 
+    public static menuFight() {
+        let choose = prompt("What do you want to do ? : \n \n1. ٩ʕ◕౪◕ʔو 🆄 🆂 🅴  🅸 🆃 🅴 🅼 🎁\n\n2. (☞ ͡° ͜ʖ ͡°)☞ 🅼 🅰 🅺 🅴  🅰 🅽  🅰 🆃 🆃 🅰 🅲 🅺 😊🎂\n\n3.(つ◉益◉)つ 🅼 🅰 🅺 🅴  🅰 🅽  🅼 🅰 🅶 🅸 🅲  🅰 🆃 🆃 🅰 🅲 🅺 💣🌟 \n")
+        return choose
+    }
     /**
      * Permet de 
      */
@@ -50,7 +56,18 @@ export default class Menu {
             /**
              * @type {string|null}Variable temporaire pour vérifier la réponse de l'utilisateur
              */
-            let temp: string|null = prompt("1. Guerrier \n2. Mage \n3. Paladin \n4. Barbare \n5. Prêtre \n6. Voleur\nVotre choix :");
+            console.log(" ╔════════════════╗         ╔════════════════╗         ╔════════════════╗ \n",
+                        "║                ║         ║                ║         ║                ║\n",
+                        "║   1. Guerrier  ║         ║    2. Mage     ║         ║   3. Paladin   ║\n",         
+                        "║                ║         ║                ║         ║                ║\n",
+                        "╚════════════════╝         ╚════════════════╝         ╚════════════════╝\n\n\n\n",
+                        "╔════════════════╗         ╔════════════════╗         ╔════════════════╗ \n",
+                        "║                ║         ║                ║         ║                ║\n",
+                        "║   4. Barbare   ║         ║   5. Prêtre    ║         ║   6. Voleur    ║\n",         
+                        "║                ║         ║                ║         ║                ║\n",
+                        "╚════════════════╝         ╚════════════════╝         ╚════════════════╝\n"
+            )
+            let temp: string|null = prompt("Votre choix :");
             if (temp != null && temp != "" && temp >= "1" && temp <= "6" && temp.length == 1) {//vérifie que la réponse est correcte
                 if (this.choice[0] == temp || this.choice[1] == temp) {
                     console.log("vous ne pouvez pas choisir deux fois le même personnage");

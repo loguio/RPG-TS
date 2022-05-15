@@ -1,25 +1,47 @@
-import Perso from "../caracter/Personnage.ts";
+import Perso from "../character/Personnage.ts";
 import Coffre from "./Coffre.ts";
 import Fight from "../fight.ts";
 import GameManager from "../GameManager.ts";
+import Monster from "../character/Monstre.ts"
+import Menu from "../menu.ts";
+import Inventory from "../inventory.ts";;
+import Boss from "../character/Boss.ts"
+import MonsterCreation from "../createMonster.ts"
 
 export default class Salle {
-    Monstres : Perso[] = []
+    // Monstres : Perso[] = [new Monster(), new Monster(), new Monster()]
     Chest : Coffre | null = null
-    constructor() {}
-    salle(gameManager: GameManager){
+    salle(gameManager: GameManager, inventory : Inventory){
+        let Monsters : Monster[] = MonsterCreation.createMonster()
+        console.log("Vous rentrez dans une salle")
         if (gameManager.place == 1 || gameManager.place == 3) {
-            let fight = new Fight();
-            fight.Fight()
+            let fight : Fight = new Fight();
+            console.log("Des monstre sont apparu, ils vous attaquent !")
+            fight.fight(gameManager.equipe,Monsters,inventory)
             gameManager.place = 1;
         }
         else if (gameManager.place == 2 || gameManager.place == 4) {
+            let caractere:string|Perso = Menu.question("Choissisez un personnage pour ouvrir le coffre : ")
+            if (caractere == "1") {
+                caractere = gameManager.equipe[0]
+            }else if (caractere == "2") {
+                caractere = gameManager.equipe[1]
+            }else if (caractere == "3") {
+                caractere = gameManager.equipe[2]
+            }else{
+                console.log("Vous n'avez pas choisis de personnage !")
+                return
+            }
             this.Chest = new Coffre();
-            this.Chest.coffre(gameManager.equipe[0])
+            this.Chest.coffre(caractere,inventory)
             gameManager.place = 1
         }else{
-            gameManager.place =1
+            console.log("Vous êtes dans la salle du boss ! ")
+            let fight : Fight = new Fight()
+            fight.fight(gameManager.equipe,[new Boss()],inventory)
+            gameManager.place = 1
         }
+        console.log("Vous avez quitté la salle !\n")
     }
     showRoom() {
         
