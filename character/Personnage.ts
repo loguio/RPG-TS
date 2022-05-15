@@ -26,9 +26,16 @@ export default class Perso {
     Heal() {
         this.life += 0.2*this.ValueMaxLife;
     }
+    /**
+     * Fonction qui enlève des points de vie si le personnage tombe sur piège dans un coffre.
+     */
     Trap(){
         this.life -= 50;
     }
+    /**
+     * 
+     * @returns {number} retourne la valeur si le personnage est viavant ou mort.
+     */
     isAlive()  : boolean{
         if (this.life == 0) {return false} return true
     }
