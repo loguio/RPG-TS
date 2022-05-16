@@ -27,9 +27,15 @@ export default class Monstre {
     Heal() {
         this.life += 0.2*this.ValueMaxLife;
     }
+    /**
+     * Fonction pour enlever la vie du personne quand il tombe dans un piège
+     */
     Trap(){
         this.life -= 50;
     }
+    /**
+     * Fonction qui vérifie si le personnage est mort ou vivant 
+     */
     isAlive()  : boolean{
         if (this.life == 0) {return false} return true
     }

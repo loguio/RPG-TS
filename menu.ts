@@ -11,11 +11,17 @@ export default class Menu {
         }
         return resp
     }
-
+    /**
+     * 
+     * Propose le menu d'action en combat
+     */
     public static menuFight() {
         let choose = prompt("What do you want to do ? : \n \n1. ٩ʕ◕౪◕ʔو 🆄 🆂 🅴  🅸 🆃 🅴 🅼 🎁\n\n2. (☞ ͡° ͜ʖ ͡°)☞ 🅼 🅰 🅺 🅴  🅰 🅽  🅰 🆃 🆃 🅰 🅲 🅺 😊🎂\n\n3.(つ◉益◉)つ 🅼 🅰 🅺 🅴  🅰 🅽  🅼 🅰 🅶 🅸 🅲  🅰 🆃 🆃 🅰 🅲 🅺 💣🌟 \n")
         return choose
     }
+    public static chooseCara2Attack(enemies : Perso[]) {
+    
+    }  
     /**
      * Permet de 
      */
@@ -28,7 +34,12 @@ export default class Menu {
     openChest() {
 
     }
-
+    /**
+     * affiche les dégats infligués
+     * @param damage 
+     * @param perso1 
+     * @param perso2 
+     */
     showAttack(damage : number,perso1 : string,perso2 : string) {
         console.log(`${perso1} a infligé ${damage} point de dégats à ${perso2}`)
     }
@@ -47,7 +58,7 @@ export default class Menu {
      */
     team: Perso[] = [];
     /**
-     * 
+     * Fonction pour choisir l'équipe du joueur
      * @returns {Perso[]} retourne l'équipe du joueur
      */
     chooseCharacter(): Perso[] {
