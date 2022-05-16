@@ -18,7 +18,7 @@ export default class GameManager {
         return this._place;
     }
     public set place(value: number) {
-        this._place += value;
+        this._place = value;
     }
     startGame() {
         this.equipe = new Menu().chooseCharacter();//lance et initialise le menu de choix de personnage
