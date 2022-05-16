@@ -2,12 +2,8 @@ export default class Monstre {
     name : string = "Monstre qui fait peur !!!"
     valueAtk : number = 40;
     valueAtkMagic : number = 40;
-<<<<<<< HEAD:caracter/Personnage.ts
     valueAtkZone : number = 10;
-    valueDef : number = 50;
-=======
     valueDef : number = 20;
->>>>>>> 01335de9fec9abaaa68f7a682a16f18c189116aa:character/Monstre.ts
     valueVit : number = 0;
     ValueMaxLife : number = 100;
     life : number = 100
