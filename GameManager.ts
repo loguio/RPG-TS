@@ -1,11 +1,10 @@
 import Menu from "./menu.ts";
-import Objets from "./ClassObjet/Objet.ts"
-import Potion from "./ClassObjet/potion.ts"
-import Perso from "./caracter/Personnage.ts"
-import Fight from "./fight.ts";
+import Perso from "./character/Personnage.ts"
 import Salle from "./Map/salle.ts";
+import Inventory from "./inventory.ts"
 
 export default class GameManager {
+    inventory : Inventory = new Inventory()
     /**
      * Initialise la liste qui va contenir l'équipe du joueur
      * @type {Perso[]}
@@ -25,7 +24,7 @@ export default class GameManager {
         this.equipe = new Menu().chooseCharacter();//lance et initialise le menu de choix de personnage
         let salle = new Salle();
         for (let i = 0; i < 5; i++) {
-            salle.salle(this);
+            salle.salle(this, this.inventory);
         }
         console.log("Vous avez gagné !")
     }

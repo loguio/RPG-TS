@@ -1,9 +1,16 @@
 import Perso from "./Personnage.ts";
+import Monster from "./Monstre.ts"
+
 export default class Paladin extends Perso {
     name : string = "Paladin";
     sainte : number = 0;
-    Sainte() {
-        this.sainte = (this.valueAtk - this.valueDef)*0.4;
+    valueAtk = 70;
+    valueDef = 50;
+    valueVit = 45;
+    Sainte(ennemies : Monster[]) {
+        ennemies.forEach(element => {
+            element.life = Math.max(element.life-this.valueAtk*0.4,0)
+        });
     }
 }
 

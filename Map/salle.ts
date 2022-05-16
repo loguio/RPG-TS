@@ -1,19 +1,23 @@
-import Perso from "../caracter/Personnage.ts";
+import Perso from "../character/Personnage.ts";
 import Coffre from "./Coffre.ts";
 import Fight from "../fight.ts";
 import GameManager from "../GameManager.ts";
-import Monster from "../caracter/Monstre.ts"
+import Monster from "../character/Monstre.ts"
 import Menu from "../menu.ts";
+import Inventory from "../inventory.ts";;
+import Boss from "../character/Boss.ts"
+import MonsterCreation from "../createMonster.ts"
 
 export default class Salle {
-    Monstres : Perso[] = [new Monster(), new Monster(), new Monster()]
+    // Monstres : Perso[] = [new Monster(), new Monster(), new Monster()]
     Chest : Coffre | null = null
-    salle(gameManager: GameManager){
+    salle(gameManager: GameManager, inventory : Inventory){
+        let Monsters : Monster[] = MonsterCreation.createMonster()
         console.log("Vous rentrez dans une salle")
         if (gameManager.place == 1 || gameManager.place == 3) {
-            let fight = new Fight();
-            fight.fight(gameManager.equipe,this.Monstres)
+            let fight : Fight = new Fight();
             console.log("Des monstre sont apparu, ils vous attaquent !")
+            fight.fight(gameManager.equipe,Monsters,inventory)
             gameManager.place = 1;
         }
         else if (gameManager.place == 2 || gameManager.place == 4) {
@@ -29,10 +33,12 @@ export default class Salle {
                 return
             }
             this.Chest = new Coffre();
-            this.Chest.coffre(caractere)
+            this.Chest.coffre(caractere,inventory)
             gameManager.place = 1
         }else{
             console.log("Vous êtes dans la salle du boss ! ")
+            let fight : Fight = new Fight()
+            fight.fight(gameManager.equipe,[new Boss()],inventory)
             gameManager.place = 1
         }
         console.log("Vous avez quitté la salle !\n")
