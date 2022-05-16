@@ -23,6 +23,7 @@ export default class Menu {
         }               
     }
         let choose = prompt("Choose your enemie to attack by typing the number >");
+        
         // return choose
     }  
     /**

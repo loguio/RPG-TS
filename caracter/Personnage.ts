@@ -10,6 +10,11 @@ export default class Perso {
     valuemagie : number = 0;
     chance : number = 100;
     side : string;
+    /**
+     * 
+     * @param name initialise le nom du personnage
+     * @param side initialise le coté du personnage
+     */
     constructor(name:string = "",side:string = "") {
         this.name = name;
         this.side = side;
@@ -30,9 +35,15 @@ export default class Perso {
     Heal() {
         this.life += 0.2*this.ValueMaxLife;
     }
+    /**
+     * Fonction pour enlever la vie du personne quand il tombe dans un piège
+     */
     Trap(){
         this.life -= 50;
     }
+    /**
+     * Fonction qui vérifie si le personnage est mort ou vivant 
+     */
     isAlive() : boolean {
         if (this.life == 0) {return false}else{return true}
     }
