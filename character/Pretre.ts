@@ -4,4 +4,6 @@ import Perso from "./Personnage.ts"
  */
 export default class Pretre extends Perso {
     name = "Pretre"
+    mana : number = 40;
+    manaMax : number = 40
 }

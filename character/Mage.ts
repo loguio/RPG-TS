@@ -7,6 +7,7 @@ import Monster from "./Monstre.ts"
 export default class Mage extends Perso {
     name : string = "Mage";
     mana : number = 40;
+    manaMax : number = 40
     valueAtk = 30;
     valueDef = 10;
     valueVit = 30;

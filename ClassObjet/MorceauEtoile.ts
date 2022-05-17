@@ -1,12 +1,13 @@
-import Perso from "../caracter/Personnage.ts";
+import Objet from "./Objet.ts"
+import Perso from "../character/Personnage.ts";
 
-export default class MorceauEtoile extends Perso{ 
+export default class MorceauEtoile extends Objet{ 
     name : string = "PieceOfStar";
-    heal : number = 50; 
-    ko : boolean = true;
-    morceauEtoile(){
-       if (this.ko = true) {}
-       else if (this.life > 0) {this.life = this.life + this.heal}
+    morceauEtoile(Ally: Perso){
+       if (Ally.isAlive()) {
+           Ally.life = Math.min( Ally.life+(Ally.ValueMaxLife/2),Ally.ValueMaxLife)
+       }else {
+           Ally.life = Ally.ValueMaxLife/4
+       }
     }
 }
-            
