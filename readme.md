@@ -4,7 +4,7 @@ le projet RPG est un petit jeu de type RPG qui se joue entièrement dans une con
 
 ## Language utilisé
 
-Ce projet a été totalement réalisé en TimeScript, une version améliorez de JavaScript. Ainsi que grâce a l'utilisation de DENO, un runtime amélioré de nodeJS.
+Ce projet a été totalement réalisé en TimeScript, une version améliorée de JavaScript. Ainsi que grâce a l'utilisation de DENO, un runtime amélioré de nodeJS.
 
 ## Comment faire fonctionner le jeux
 
