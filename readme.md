@@ -12,6 +12,6 @@ Pour commencer, copiez les fichiers du jeux dans un dossier RPG, ensuite assurez
 
 ## Auteur
 
--Cormerais Flavio
--Outin Jules
--Bourse Marius
+- Cormerais Flavio
+- Outin Jules
+- Bourse Marius
