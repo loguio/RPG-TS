@@ -1,9 +1,15 @@
 import Perso from "./character/Personnage.ts";
 export default class Menu {
 
-    showCharacter() {
-        
-    }
+    showCharacter(Ally: Perso[], enemies: Perso[]) {
+        Ally.forEach(element => {//pour chaque allié
+            console.log(element.name,":",element.life)//affiche le nom de l'allié
+        })
+        console.log("")
+        enemies.forEach(element => {//pour chaque allié
+            console.log(element.name,":",element.life)//affiche le nom de l'allié
+        })
+    } 
     public static question(question : string):string {
         let resp = null
         while (resp == null){
@@ -16,7 +22,7 @@ export default class Menu {
      * Propose le menu d'action en combat
      */
     public static menuFight() {
-        let choose = prompt("What do you want to do ? : \n \n1. ٩ʕ◕౪◕ʔو 🆄 🆂 🅴  🅸 🆃 🅴 🅼 🎁\n\n2. (☞ ͡° ͜ʖ ͡°)☞ 🅼 🅰 🅺 🅴  🅰 🅽  🅰 🆃 🆃 🅰 🅲 🅺 😊🎂\n\n3.(つ◉益◉)つ 🅼 🅰 🅺 🅴  🅰 🅽  🅼 🅰 🅶 🅸 🅲  🅰 🆃 🆃 🅰 🅲 🅺 💣🌟 \n")
+        let choose = prompt("\nWhat do you want to do ? : \n \n1. ٩ʕ◕౪◕ʔو 🆄 🆂 🅴  🅸 🆃 🅴 🅼 🎁\n\n2. (☞ ͡° ͜ʖ ͡°)☞ 🅼 🅰 🅺 🅴  🅰 🅽  🅰 🆃 🆃 🅰 🅲 🅺 😊🎂\n\n3.(つ◉益◉)つ 🅼 🅰 🅺 🅴  🅰 🅽  🅼 🅰 🅶 🅸 🅲  🅰 🆃 🆃 🅰 🅲 🅺 💣🌟 \n")
         return choose
     }
     public static chooseCara2Attack(enemies : Perso[]) {

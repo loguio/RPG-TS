@@ -1,6 +1,6 @@
 import Menu from "./menu.ts";
 import Perso from "./character/Personnage.ts"
-import Salle from "./Map/salle.ts";
+import Room from "./Map/salle.ts";
 import Inventory from "./inventory.ts"
 
 export default class GameManager {
@@ -9,7 +9,7 @@ export default class GameManager {
      * Initialise la liste qui va contenir l'équipe du joueur
      * @type {Perso[]}
      */
-    equipe: Perso[] = [];
+    team: Perso[] = [];
     /**
      * @type {number} Variable qui contient dans quelle salle est le joueur
      */
@@ -21,10 +21,10 @@ export default class GameManager {
         this._place = value;
     }
     startGame() {
-        this.equipe = new Menu().chooseCharacter();//lance et initialise le menu de choix de personnage
-        let salle = new Salle();
+        this.team = new Menu().chooseCharacter();//lance et initialise le menu de choix de personnage
+        let room = new Room();
         for (let i = 0; i < 5; i++) {
-            salle.salle(this, this.inventory);
+            room.room(this, this.inventory);
         }
         console.log("Vous avez gagné !")
     }

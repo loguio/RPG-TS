@@ -18,7 +18,9 @@ export default class Monstre {
      * @param enemy l'ennemi que le personnage va attaquer
      */
     Attack(enemy : any) {
+        let tempLife = enemy.life
         enemy.life = Math.max(enemy.life - (Math.max(this.valueAtk - enemy.valueDef,0)),0);
+        console.log("\nLife",enemy.name," : ",tempLife," --> ", enemy.life)
     }
     /**
      * Fonction pour soigner un personnage  

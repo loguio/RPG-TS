@@ -47,7 +47,7 @@ export default class Perso {
      */
     Attack(enemy : Perso) {
         if (this.valueAtk <= enemy.valueDef) {enemy.valueDef = Math.max(0,enemy.valueDef - (this.valueAtk/4) ); console.log("l'ennemie a perdu de l'armure")}
-        else {enemy.life = Math.max(enemy.life - (this.valueAtk - enemy.valueDef),0)};
+        else {let tempLife = enemy.life;enemy.life = Math.max(enemy.life - (this.valueAtk - enemy.valueDef),0);console.log("\nLife",enemy.name," : ",tempLife," --> ", enemy.life)};
     }
     /**
      * Fonction pour soigner un personnage  

@@ -75,15 +75,16 @@ export default class Fight {
         let order = 0
         while (this.AllyTeamAlive() && this.EnnemiesTeamAlive()) {//tant qu'une équipe n'est pas morte
             if (this.goodOrder[order].isAlive() && this.goodOrder[order].team == "ally") {//si le personnage est en vie et que c'est l'équipe alliée
+                this.menu.showCharacter(this.Ally,this.Ennemies)
                 this.AllyFight(this.goodOrder[order])//le personnage attaque
             }else if (this.goodOrder[order].isAlive()) {//si le personnage est en vie et que c'est l'équipe ennemie
+                this.menu.showCharacter(this.Ally,this.Ennemies)
                 this.EnnemieFight(this.goodOrder[order])//le personnage attaque
             }
             if (order == this.goodOrder.length-1) {order = 0} else {order++}//passe au personnage suivant
         }
         if (this.AllyTeamAlive()) {console.log(" Bravo vous avez gagnez le combat ! ")}
             else {console.log("Mince vous avez perdu...")}
-        
     }
 
     AllyFight(ally : Perso) {//fonction qui permet de lancer le combat pour un allié
@@ -98,7 +99,7 @@ export default class Fight {
             let choose :string | null= prompt("qui voulez vous attaquer ? >")//choix de l'ennemi à attaquer
             if (choose != null || choose == "1" || choose == "2" || choose == "3" ) {
                 ally.Attack(this.Ennemies[parseInt(choose)-1])//attaque l'ennemi
-                console.log(this.Ennemies[parseInt(choose)-1])//affiche l'ennemi attaqué
+                // console.log(this.Ennemies[parseInt(choose)-1])//affiche l'ennemi attaqué
             }
         }else if (choose == "3") {//si le choix est utiliser une attaque magique
             if (this.magic() == false) {//vérifie si le personnage peut utiliser une attaque magique
