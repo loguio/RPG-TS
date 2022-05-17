@@ -1,9 +1,9 @@
-import Perso from "../character/Personnage.ts";
+import Chara from "../character/Personnage.ts";
 import Inventory from "../inventory.ts"
 import Potion from "../ClassObjet/potion.ts"
 
-export default class Coffre {
-    coffre(player :Perso,inventory : Inventory) {
+export default class Chest {
+    chest(player :Chara,inventory : Inventory) {
         console.log("Vous avez trouvé un coffre !\nOuverture du coffre !")
         let openChest = Math.round(Math.random())//génere un nombre aléatoire entre 0 et 1
         if (openChest == 1) {//ouverture du coffre avec succès

@@ -1,4 +1,4 @@
-import Perso from "./character/Personnage.ts";
+import Chara from "./character/Personnage.ts";
 import Menu from "./menu.ts";
 import Inventory from "./inventory.ts"
 import Monster from "./character/Monstre.ts"
@@ -15,7 +15,7 @@ export default class Fight {
     /**
      * @type {Perso[]}
      */
-    Ally : Perso[]  = []
+    Ally : Chara[]  = []
     /**
      * @type {Monster[]}
      */
@@ -23,7 +23,7 @@ export default class Fight {
     /**
      * @type {Perso[]}
     */ 
-    goodOrder : Perso[]= []
+    goodOrder : Chara[]= []
 
     Order() {//met dans l'ordre de combat
         this.Ally.forEach(element => {//ajoute les personnages de l'équipe alliée dane le tableau goodOrder
@@ -67,7 +67,7 @@ export default class Fight {
      * @param ennemies 
      * @param inventory 
      */
-    fight(ally : Perso[],ennemies : Monster[], inventory : Inventory) {
+    fight(ally : Chara[],ennemies : Monster[], inventory : Inventory) {
         this.Ally = ally
         this.inventory = inventory
         this.Ennemies = ennemies
@@ -87,7 +87,7 @@ export default class Fight {
             else {console.log("Mince vous avez perdu...")}
     }
 
-    AllyFight(ally : Perso) {//fonction qui permet de lancer le combat pour un allié
+    AllyFight(ally : Chara) {//fonction qui permet de lancer le combat pour un allié
         let choose : string | null = Menu.menuFight()//choix de l'action
         while(choose == null ) {choose = Menu.menuFight()}//vérifie que le choix est valide
         if (choose == "1") {//si le choix montrer l'inventaire
@@ -108,11 +108,11 @@ export default class Fight {
         }else {this.AllyFight(ally)}//retourne au menu
     }
 
-    EnnemieFight(ennemi : Perso) {//fonction qui permet de lancer le combat pour un ennemi
-        let tempo : Perso = this.Ally[Math.floor(Math.random()*3)]//choisi un allié au hasard
-        while(!tempo.isAlive) {//tant que l'allié choisi n'est pas en vie
-            tempo = this.Ally[Math.floor(Math.random()*3)]//choisi un allié au hasard
+    EnnemieFight(ennemi : Chara) {//fonction qui permet de lancer le combat pour un ennemi
+        let allyAlive : Chara = this.Ally[Math.floor(Math.random()*3)]//choisi un allié au hasard
+        while(!allyAlive.isAlive) {//tant que l'allié choisi n'est pas en vie
+            allyAlive = this.Ally[Math.floor(Math.random()*3)]//choisi un allié au hasard
         }
-        ennemi.Attack(tempo)//attaque l'allié
+        ennemi.Attack(allyAlive)//attaque l'allié
     }
 }

@@ -1,18 +1,18 @@
-import Objets from "./ClassObjet/Objet.ts"
+import Objects from "./ClassObjet/Objet.ts"
 import Potion from "./ClassObjet/potion.ts"
-import Perso from "./character/Personnage.ts"
+import Chara from "./character/Personnage.ts"
 
 export default class Inventory {
-    inventory : Objets[] = [new Potion(), new Potion(), new Potion()]
+    inventory : Objects[] = [new Potion(), new Potion(), new Potion()]
 
-    showInventory(ally : Perso[]) {//affiche l'inventaire
+    showInventory(ally : Chara[]) {//affiche l'inventaire
         if (this.inventory.length == 0) {return null}
 
         for (let index = 1; index <= this.inventory.length; index++) {//affiche les objets
             console.log(` ${index}. ${this.inventory[index-1].name}`)
         }
 
-        let item : Objets | null = null
+        let item : Objects | null = null
         let choose : string | number | null = prompt("what do you want to choose ? >")//choix de l'objet
         if (choose != null && parseInt(choose) <= this.inventory.length) {
             item = this.inventory[parseInt(choose)-1]
@@ -39,7 +39,7 @@ export default class Inventory {
      * ajoute un objet à l'inventaire
      * @param item 
      */
-    addItem(item : Objets) {
+    addItem(item : Objects) {
         this.inventory.push(item)
     }
 

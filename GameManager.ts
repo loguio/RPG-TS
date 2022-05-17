@@ -1,5 +1,5 @@
 import Menu from "./menu.ts";
-import Perso from "./character/Personnage.ts"
+import Chara from "./character/Personnage.ts"
 import Room from "./Map/salle.ts";
 import Inventory from "./inventory.ts"
 
@@ -9,7 +9,7 @@ export default class GameManager {
      * Initialise la liste qui va contenir l'équipe du joueur
      * @type {Perso[]}
      */
-    team: Perso[] = [];
+    team: Chara[] = [];
     /**
      * @type {number} Variable qui contient dans quelle salle est le joueur
      */

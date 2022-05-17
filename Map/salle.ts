@@ -1,5 +1,5 @@
-import Perso from "../character/Personnage.ts";
-import Coffre from "./Coffre.ts";
+import Chara from "../character/Personnage.ts";
+import Chest from "./Coffre.ts";
 import Fight from "../fight.ts";
 import GameManager from "../GameManager.ts";
 import Monster from "../character/Monstre.ts"
@@ -10,7 +10,7 @@ import MonsterCreation from "../createMonster.ts"
 
 export default class room {
     // Monstres : Perso[] = [new Monster(), new Monster(), new Monster()]
-    Chest : Coffre | null = null
+    Chest : Chest | null = null
     /**
      * Fonction qui se lance lorsque le joueur entre dans une salle
      * @param gameManager 
@@ -26,19 +26,19 @@ export default class room {
             gameManager.place += 1;                                         // on passe à la salle suivante
         }
         else if (gameManager.place == 2 || gameManager.place == 4) {//Si on est dans la salle 2 ou 4
-            let caractere:string|Perso = Menu.question("Choissisez un personnage pour ouvrir le coffre : ")
-            if (caractere == "1") {//Si le joueur choisit le personnage 1
-                caractere = gameManager.team[0]   //On affecte le personnage 1 à caractere
-            }else if (caractere == "2") {//Si le joueur choisit le personnage 2
-                caractere = gameManager.team[1]//On affecte le personnage 2 à caractere
-            }else if (caractere == "3") {  //Si le joueur choisit le personnage 3
-                caractere = gameManager.team[2]// On affecte le personnage 3 à caractere
+            let character:string|Chara = Menu.question("Choissisez un personnage pour ouvrir le coffre : ")
+            if (character == "1") {//Si le joueur choisit le personnage 1
+                character = gameManager.team[0]   //On affecte le personnage 1 à caractere
+            }else if (character == "2") {//Si le joueur choisit le personnage 2
+                character = gameManager.team[1]//On affecte le personnage 2 à caractere
+            }else if (character == "3") {  //Si le joueur choisit le personnage 3
+                character = gameManager.team[2]// On affecte le personnage 3 à caractere
             }else{
                 console.log("Vous n'avez pas choisis de personnage !")//    Si le joueur n'a pas choisis de personnage
                 return
             }
-            this.Chest = new Coffre();//On créer une instance de coffre
-            this.Chest.coffre(caractere,inventory)// On lance le coffre
+            this.Chest = new Chest();//On créer une instance de coffre
+            this.Chest.chest(character,inventory)// On lance le coffre
             gameManager.place += 1
         }else{//Si on est dans la salle 5
             console.log("Vous êtes dans la salle du boss ! ")

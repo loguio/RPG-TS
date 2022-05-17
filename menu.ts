@@ -1,13 +1,16 @@
-import Perso from "./character/Personnage.ts";
+import Chara from "./character/Personnage.ts";
+import progressbar from "./progressBar.ts";
 export default class Menu {
 
-    showCharacter(Ally: Perso[], enemies: Perso[]) {
+    showCharacter(Ally: Chara[], enemies: Chara[]) {
         Ally.forEach(element => {//pour chaque allié
-            console.log(element.name,":",element.life)//affiche le nom de l'allié
+            let p = new progressbar(element.ValueMaxLife);p.setProgress(element.life)
+            console.log(element.name,":",p.toString(),element.life,"/",element.ValueMaxLife)//affiche le nom de l'allié
         })
         console.log("")
         enemies.forEach(element => {//pour chaque allié
-            console.log(element.name,":",element.life)//affiche le nom de l'allié
+            let p = new progressbar(element.ValueMaxLife);p.setProgress(element.life)
+            console.log(element.name,":",p.toString(),element.life,"/",element.ValueMaxLife)//affiche le nom de l'allié
         })
     } 
     public static question(question : string):string {
@@ -25,7 +28,7 @@ export default class Menu {
         let choose = prompt("\nWhat do you want to do ? : \n \n1. ٩ʕ◕౪◕ʔو 🆄 🆂 🅴  🅸 🆃 🅴 🅼 🎁\n\n2. (☞ ͡° ͜ʖ ͡°)☞ 🅼 🅰 🅺 🅴  🅰 🅽  🅰 🆃 🆃 🅰 🅲 🅺 😊🎂\n\n3.(つ◉益◉)つ 🅼 🅰 🅺 🅴  🅰 🅽  🅼 🅰 🅶 🅸 🅲  🅰 🆃 🆃 🅰 🅲 🅺 💣🌟 \n")
         return choose
     }
-    public static chooseCara2Attack(enemies : Perso[]) {
+    public static chooseCara2Attack(enemies : Chara[]) {
     
     }  
     /**
@@ -62,12 +65,12 @@ export default class Menu {
      * Variable qui va contenir l'équipes du joueur
      * @type {Perso} 
      */
-    team: Perso[] = [];
+    team: Chara[] = [];
     /**
      * Fonction pour choisir l'équipe du joueur
      * @returns {Perso[]} retourne l'équipe du joueur
      */
-    chooseCharacter(): Perso[] {
+    chooseCharacter(): Chara[] {
         while (this.choice.length < 3) {
             console.log("Choose your character by typing the number of the character you want to play");
             /**
@@ -95,17 +98,17 @@ export default class Menu {
         }
         for (let i = 0; i < this.choice.length; i++) {//crée les personnages dans la liste de l'équipe
             if (this.choice[i] == "1") {
-                this.team.push(new Perso("Guerrier"));
+                this.team.push(new Chara("Guerrier"));
             } else if (this.choice[i] == "2") {
-                this.team.push(new Perso("Mage"));
+                this.team.push(new Chara("Mage"));
             } else if (this.choice[i] == "3") {
-                this.team.push(new Perso("Paladin"));
+                this.team.push(new Chara("Paladin"));
             } else if (this.choice[i] == "4") {
-                this.team.push(new Perso("Barbare"));
+                this.team.push(new Chara("Barbare"));
             } else if (this.choice[i] == "5") {
-                this.team.push(new Perso("Prêtre"));
+                this.team.push(new Chara("Prêtre"));
             } else if (this.choice[i] == "6") {
-                this.team.push(new Perso("Voleur"));  
+                this.team.push(new Chara("Voleur"));  
             }            
         }
         return this.team  
