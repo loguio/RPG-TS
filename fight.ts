@@ -2,6 +2,7 @@ import Chara from "./character/Personnage.ts";
 import Menu from "./menu.ts";
 import Inventory from "./inventory.ts"
 import Monster from "./character/Monstre.ts"
+import Mage from "./character/Mage.ts"
 
 export default class Fight {
     /**
@@ -54,13 +55,6 @@ export default class Fight {
         return false
     }
 
-    magic() {//vérifie si le personnage peut utiliser une attaque magique
-        this.Ally.forEach(element => {
-            if (element.name == "Mage")
-            return true
-        });
-        return false
-    }
     /**
      * Fonction qui permet de lancer le combat
      * @param ally il s'agit d'une liste de personnages Alliés (ceux de l'utilisateur)
@@ -88,31 +82,48 @@ export default class Fight {
     }
 
     AllyFight(ally : Chara) {//fonction qui permet de lancer le combat pour un allié
+        console.log(`c'est au tour de ${ally.name}`)
         let choose : string | null = Menu.menuFight()//choix de l'action
         while(choose == null ) {choose = Menu.menuFight()}//vérifie que le choix est valide
         if (choose == "1") {//si le choix montrer l'inventaire
             this.inventory.showInventory(this.Ally)//affiche l'inventaire
         }else if (choose == "2") {//si le choix est attaquer
             for (let index = 0; index < this.Ennemies.length; index++) {//pour chaque ennemi
-                console.log(`${index+1}. ${this.Ennemies[index].name}`)//affiche le nom de l'ennemi
+                if (this.Ennemies[index].isAlive()) {
+                    console.log(`${index+1}. ${this.Ennemies[index].name}`)//affiche le nom de l'ennemi
+                }
             }
             let choose :string | null= prompt("qui voulez vous attaquer ? >")//choix de l'ennemi à attaquer
             if (choose != null || choose == "1" || choose == "2" || choose == "3" ) {
                 ally.Attack(this.Ennemies[parseInt(choose)-1])//attaque l'ennemi
             }
         }else if (choose == "3") {//si le choix est utiliser une attaque magique
-            if (this.magic() == false) {//vérifie si le personnage peut utiliser une attaque magique
-                console.log("Vous ne pouvea pas utilisez d'attaque magique !")
-                this.AllyFight(ally)}//retourne au menu
+            let choose : null | string = prompt("voulez vous faire l'attaque spéciale ? Y/N")
+            if (choose== "N" || choose == "n" || choose == "non") {this.AllyFight(ally)}else {
+                switch(ally.name) {
+                    case("Mage"):
+                    ally.MagicAttck(this.Ennemies)
+                    case("Barbare"):
+                    ally.Berserk(this.Ennemies)
+                    case("Paladin"):
+                    ally.Sainte(this.Ennemies)
+                    case("Pretre"):
+                    ally.Healing(this.Ally)
+                }
+            }
         }else {this.AllyFight(ally)}//retourne au menu
     }
 
     EnnemieFight(ennemi : Chara) {//fonction qui permet de lancer le combat pour un ennemi
-        let allyAlive : Chara = this.Ally[Math.floor(Math.random()*3)]//choisi un allié au hasard
-        while(!allyAlive.isAlive) {//tant que l'allié choisi n'est pas en vie
-            allyAlive = this.Ally[Math.floor(Math.random()*3)]//choisi un allié au hasard
+        if (ennemi.name == "Boss") {
+            ennemi.AttackBoss(this.Ally)
+        }else {
+            let allyAlive : Chara = this.Ally[Math.floor(Math.random()*3)]//choisi un allié au hasard
+            while(!allyAlive.isAlive) {//tant que l'allié choisi n'est pas en vie
+                allyAlive = this.Ally[Math.floor(Math.random()*3)]//choisi un allié au hasard
+            }
+            ennemi.Attack(allyAlive)//attaque l'allié
+            this.menu.showAttack(ennemi.valueAtk-allyAlive.valueDef, ennemi.name, allyAlive.name) // permet d'afficher l'action qui viens de se dérouler
         }
-        ennemi.Attack(allyAlive)//attaque l'allié
-        this.menu.showAttack(ennemi.valueAtk-allyAlive.valueDef, ennemi.name, allyAlive.name)
     }
 }

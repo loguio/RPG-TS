@@ -11,7 +11,7 @@ export default class Chest {
         let openChest = Math.round(Math.random())//génere un nombre aléatoire entre 0 et 1
         if (openChest == 1) {//ouverture du coffre avec succès
             for (let index = 0; index < 2; index++) {
-                let tempo = Math.floor(Math.random()*4)
+                let tempo = Math.floor(Math.random()*4) // on fait un random car il y a 4 possibilité pous savoir qu'elle item l'utilisateur a gagné
                 switch(tempo) {
                 case 1:
                     inventory.addItem(new Potion())

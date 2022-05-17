@@ -14,14 +14,6 @@ export default class Barbare extends Perso{
     valuemagie : number = 0;
     chance : number = 100;
     team : string = "ally"
-
-    Berserk(ennemi : Monster[]){
-        let tempo : Perso = ennemi[Math.floor(Math.random()*3)]
-        while(!tempo.isAlive) {
-            tempo = ennemi[Math.floor(Math.random()*3)]
-        }
-        tempo.life = Math.max(0,tempo.life-this.valueAtk*1.3)
-    }
 }
 
 // Le barbare aura une défense faible et une attaque plus élevée encore que leguerrier. 

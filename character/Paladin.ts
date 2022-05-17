@@ -10,11 +10,6 @@ export default class Paladin extends Perso {
     valueAtk = 70;
     valueDef = 50;
     valueVit = 45;
-    Sainte(ennemies : Monster[]) {
-        ennemies.forEach(element => {
-            element.life = Math.max(element.life-this.valueAtk*0.4,0)
-        });
-    }
 }
 
 // Le paladin aura une attaque moins élevée que le guerrier et une défenselégèrement plus élevée. 

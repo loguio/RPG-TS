@@ -11,10 +11,6 @@ export default class Mage extends Perso {
     valueAtk = 30;
     valueDef = 10;
     valueVit = 30;
-    MagicAttck(ennemi : Monster) {
-        this.mana =- 20
-        ennemi.life = Math.max(0,ennemi.life-this.valueAtk)
-    }
 }
 
 // Le Mage aura une attaque physique faible et une défense faible également. 

@@ -21,26 +21,30 @@ export default class Inventory {
         let choose : string | number | null = prompt("what do you want to choose ? >")//choix de l'objet
         if (choose != null && parseInt(choose) <= this.inventory.length) {
             item = this.inventory[parseInt(choose)-1]
-            this.inventory.splice(parseInt(choose)-1,1)
             console.log(`sur qui voulez vous consommer : ${item.name}`)
         }
         
         for (let index = 0; index < ally.length; index++) {//affiche l'équipe du joueur
             console.log(` ${index+1}. ${ally[index].name}`)          
         }
-        choose = prompt("Qui choisissez vous ? >")
-        if (choose == "1" || choose == "2" || choose == "3") {//choix du personnage
+        let choose2 : string | null = prompt("Qui choisissez vous ? >")
+        if (choose2 == "1" || choose2 == "2" || choose2 == "3") {//choix du personnage
             if (item != null) {
                 if (item.name == "Potion") {//si l'objet est une potion
-                    item.Healing(ally[parseInt(choose)-1])//le personnage se soigne
-                }else if (item.name == "Ether" && ally[parseInt(choose)-1].name == "Mage") {
-                    item.ether(ally[parseInt(choose)-1] as Mage)
-                }else if (item.name == "Ether" && ally[parseInt(choose)-1].name == "Pretre" ) {
-                    item.ether(ally[parseInt(choose)-1] as Pretre)
-                }else if (item.name == "DemiEtoile") {
-                    item.demiEtoile(ally[parseInt(choose)-1])
+                    item.Healing(ally[parseInt(choose2)-1])//le personnage se soigne
+                    this.inventory.splice(parseInt(choose as string)-1,1)
+                }else if (item.name == "Ether" && ally[parseInt(choose2)-1].name == "Mage") {
+                    item.ether(ally[parseInt(choose2)-1] as Mage)
+                    this.inventory.splice(parseInt(choose as string)-1,1)
+                }else if (item.name == "Ether" && ally[parseInt(choose2)-1].name == "Pretre" ) {
+                    item.ether(ally[parseInt(choose2)-1] as Pretre)
+                    this.inventory.splice(parseInt(choose as string)-1,1)
+                }else if (item.name == "Demi Etoile") {
+                    item.demiEtoile(ally[parseInt(choose2)-1])
+                    this.inventory.splice(parseInt(choose as string)-1,1)
                 }else if (item.name == "MorceauEtoile"){
-                    item.morceauEtoile(ally[parseInt(choose)-1])
+                    item.morceauEtoile(ally[parseInt(choose2)-1])
+                    this.inventory.splice(parseInt(choose as string)-1,1)
                 }else {console.log("recommencer mais choisissez des entrée valides");this.showInventory(ally)}
             }
         }

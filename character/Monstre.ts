@@ -1,7 +1,8 @@
+import Chara from "./Personnage.ts"
 /**
  * la classe Monstre est une classe qui es parentes de tout les monstres
  */
-export default class Monstre {
+export default class Monstre extends Chara{
     name : string = "Monstre qui fait peur !!!"
     valueAtk : number = 40;
     valueAtkMagic : number = 40;
@@ -46,4 +47,5 @@ export default class Monstre {
     isAlive()  : boolean{
         if (this.life == 0) {return false} return true
     }
+    
 }

@@ -1,8 +1,10 @@
 import Chara from "./character/Personnage.ts";
 import progressbar from "./progressBar.ts";
+import Monster from "./character/Monstre.ts"
+
 export default class Menu {
 
-    showCharacter(Ally: Chara[], enemies: Chara[]) {
+    showCharacter(Ally: Chara[], enemies: Monster[]) {
         Ally.forEach(element => {//pour chaque allié
             let p = new progressbar(element.ValueMaxLife);p.setProgress(element.life)
             console.log(element.name,":",p.toString(),element.life,"/",element.ValueMaxLife)//affiche le nom de l'allié
@@ -25,23 +27,8 @@ export default class Menu {
      * Propose le menu d'action en combat
      */
     public static menuFight() {
-        let choose = prompt("\nWhat do you want to do ? : \n \n1. ٩ʕ◕౪◕ʔو 🆄 🆂 🅴  🅸 🆃 🅴 🅼 🎁\n\n2. (☞ ͡° ͜ʖ ͡°)☞ 🅼 🅰 🅺 🅴  🅰 🅽  🅰 🆃 🆃 🅰 🅲 🅺 😊🎂\n\n3.(つ◉益◉)つ 🅼 🅰 🅺 🅴  🅰 🅽  🅼 🅰 🅶 🅸 🅲  🅰 🆃 🆃 🅰 🅲 🅺 💣🌟 \n")
+        let choose = prompt("\nQue voulez-vous faire ? : \n \n1. ٩ʕ◕౪◕ʔو Utiliser un item 🎁\n\n2. (☞ ͡° ͜ʖ ͡°)☞ Faire une attaque physique 😊🎂\n\n3.(つ◉益◉)つ Faire une attaque spécial 💣🌟 \n")
         return choose
-    }
-    public static chooseCara2Attack(enemies : Chara[]) {
-    
-    }  
-    /**
-     * Permet de 
-     */
-    showMenu() {
-
-    }
-    /**
-     * Permet d'ouvrir un coffre
-     */
-    openChest() {
-
     }
     /**
      * affiche les dégats infligués
@@ -54,7 +41,7 @@ export default class Menu {
     }
 
     showItem() {
-        let choose = prompt(`What item do you want to use ? `)
+        let choose = prompt(`Quel item voulez vous utiliser ? `)
     }
     /**
      * variable qui va contenir les choix du joueur
@@ -72,7 +59,7 @@ export default class Menu {
      */
     chooseCharacter(): Chara[] {
         while (this.choice.length < 3) {
-            console.log("Choose your character by typing the number of the character you want to play");
+            console.log("Choisissez le Personage que vous voulez en tapant son numéro");
             /**
              * @type {string|null}Variable temporaire pour vérifier la réponse de l'utilisateur
              */
@@ -108,7 +95,7 @@ export default class Menu {
             } else if (this.choice[i] == "5") {
                 this.team.push(new Chara("Prêtre"));
             } else if (this.choice[i] == "6") {
-                this.team.push(new Chara("Voleur"));  
+                this.team.push(new Chara("Voleur"));
             }            
         }
         return this.team  
