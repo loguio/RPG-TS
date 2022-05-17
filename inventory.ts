@@ -1,9 +1,12 @@
 import Objets from "./ClassObjet/Objet.ts"
 import Potion from "./ClassObjet/potion.ts"
+import Ether from "./ClassObjet/Ether.ts"
+import MorceauEtoile from "./ClassObjet/MorceauEtoile.ts"
+import DemiEtoile from "./ClassObjet/DemiEtoile.ts"
 import Perso from "./character/Personnage.ts"
 
 export default class Inventory {
-    inventory : Objets[] = [new Potion(), new Potion(), new Potion()]
+    inventory : Objets[] = [new Potion(), new Ether(), new DemiEtoile(),new MorceauEtoile()]
 
     showInventory(ally : Perso[]) {//affiche l'inventaire
         if (this.inventory.length == 0) {return null}
@@ -28,9 +31,9 @@ export default class Inventory {
             if (ally[parseInt(choose)-1].isAlive()) {//si le personnage est en vie
                 console.log(item)
                 if (item != null && item.name == "Potion") {//si l'objet est une potion
-                    console.log(ally[parseInt(choose)-1])
                     item.Healing(ally[parseInt(choose)-1])//le personnage se soigne
-                    console.log(ally[parseInt(choose)-1])
+                }else if (item != null && item.name == "Ether") {
+                    item.ether(ally[parseInt(choose)-1])
                 }
             }
         }
