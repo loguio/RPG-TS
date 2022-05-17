@@ -98,7 +98,6 @@ export default class Fight {
             let choose :string | null= prompt("qui voulez vous attaquer ? >")//choix de l'ennemi à attaquer
             if (choose != null || choose == "1" || choose == "2" || choose == "3" ) {
                 ally.Attack(this.Ennemies[parseInt(choose)-1])//attaque l'ennemi
-                console.log(this.Ennemies[parseInt(choose)-1])//affiche l'ennemi attaqué
             }
         }else if (choose == "3") {//si le choix est utiliser une attaque magique
             if (this.magic() == false) {//vérifie si le personnage peut utiliser une attaque magique
@@ -113,5 +112,7 @@ export default class Fight {
             tempo = this.Ally[Math.floor(Math.random()*3)]//choisi un allié au hasard
         }
         ennemi.Attack(tempo)//attaque l'allié
+        this.menu.showAttack(ennemi.valueAtk-tempo.valueDef, ennemi.name, tempo.name)
+        console.log(this.Ally)
     }
 }
