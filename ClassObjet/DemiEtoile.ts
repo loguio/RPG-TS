@@ -1,9 +1,13 @@
-import Perso from "../caracter/Personnage.ts"
+import Objet from "./Objet.ts"
+import Perso from "../character/Personnage.ts"
 
-export default class DemiEtoile extends Perso{
+export default class DemiEtoile extends Objet{
     name : string = "HalfStar";
-    demiEtoile(){
-        if (this.alive == false) {this.alive = this.alive}
-        else if (this.life > 0 ) {this.life = 100}
+    demiEtoile(ally : Perso){
+        if (ally.isAlive()){
+            ally.life = Math.min(ally.life+this.heal,ally.ValueMaxLife)
+        } else {
+            console.log("This ally is dead")
+        }
     }
 }

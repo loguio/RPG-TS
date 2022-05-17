@@ -1,12 +1,10 @@
-import Perso from "../caracter/Personnage.ts";
+import Objet from "./Objet.ts";
 
-export default class MorceauEtoile extends Perso{ 
+export default class MorceauEtoile extends Objet{ 
     name : string = "PieceOfStar";
     heal : number = 50; 
-    ko : boolean = true;
     morceauEtoile(){
-       if (this.ko = true) {}
-       else if (this.life > 0) {this.life = this.life + this.heal}
+       
     }
 }
             
