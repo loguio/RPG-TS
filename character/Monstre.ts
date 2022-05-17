@@ -1,3 +1,6 @@
+/**
+ * la classe Monstre est une classe qui es parentes de tout les monstres
+ */
 export default class Monstre {
     name : string = "Monstre qui fait peur !!!"
     valueAtk : number = 40;

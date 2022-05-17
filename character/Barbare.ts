@@ -1,9 +1,10 @@
 import Perso from "./Personnage.ts";
 import Monster from "./Monstre.ts"
-
+/** 
+ * la classe Barbare est une classe enfant de la classe Perso
+*/
 export default class Barbare extends Perso{
     name : string = "Barbare";
-    berserk : number = 0;
     valueAtk : number = 80;
     valueAtkMagic : number = 40;
     valueDef : number = 25;
@@ -13,6 +14,7 @@ export default class Barbare extends Perso{
     valuemagie : number = 0;
     chance : number = 100;
     team : string = "ally"
+
     Berserk(ennemi : Monster[]){
         let tempo : Perso = ennemi[Math.floor(Math.random()*3)]
         while(!tempo.isAlive) {

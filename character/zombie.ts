@@ -1,5 +1,7 @@
 import Monstre from "./Monstre.ts"
-
+/**
+ * la classe Zombie est une classe enfant de Monstre 
+*/
 export default class Zombie extends Monstre{
     name : string = "Zombie";
     ValueMaxLife = 100

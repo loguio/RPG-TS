@@ -63,9 +63,9 @@ export default class Fight {
     }
     /**
      * Fonction qui permet de lancer le combat
-     * @param ally 
-     * @param ennemies 
-     * @param inventory 
+     * @param ally il s'agit d'une liste de personnages Alliés (ceux de l'utilisateur)
+     * @param ennemies il s'agit d'une liste de monstres Ennemies 
+     * @param inventory il s'agit de l'inventaire contenant tous les objets 
      */
     fight(ally : Perso[],ennemies : Monster[], inventory : Inventory) {
         this.Ally = ally

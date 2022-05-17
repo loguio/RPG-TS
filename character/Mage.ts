@@ -1,6 +1,9 @@
 import Perso from "./Personnage.ts";
 import Monster from "./Monstre.ts"
 
+/**
+ * la classe Mage est une classe enfant de Perso
+ */
 export default class Mage extends Perso {
     name : string = "Mage";
     mana : number = 40;
