@@ -13,6 +13,8 @@ export default class Monstre {
     valuemagie : number = 0;
     chance : number = 100;
     team : string = "ennemi"
+    mana : number = 40
+    manaMax : number = 40
 
     UseItem() {
 

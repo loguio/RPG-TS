@@ -7,8 +7,24 @@ import LittleSqueleton from "./character/petit_squelette.ts"
 export default class createMonster {
     public static createMonster() : Monstre[]  {
         const listMonster : Monstre[] = []
-        const listChoice : Monstre[] = [new ArcherZombie(),new Zombie(),new GiantSqueleton(), new LittleSqueleton()]
-        for (let index = 0; index < 3; index++) {listMonster.push(listChoice[Math.floor(Math.random()*4)])} 
+        for (let index = 0; index < 3; index++) {
+            let tempo = Math.floor(Math.random()*4)
+            switch (tempo) {
+                case 1:
+                listMonster.push(new ArcherZombie())
+                break
+                case 0 : 
+                listMonster.push(new Zombie())
+                break
+                case 2 : 
+                listMonster.push(new GiantSqueleton())
+                break
+                default : 
+                listMonster.push(new LittleSqueleton())
+                break
+            }  
+        }
         return listMonster
     }
+
 }

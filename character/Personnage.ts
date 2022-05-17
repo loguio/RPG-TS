@@ -34,6 +34,8 @@ export default class Perso {
      * il s'agit de la team dans laquel est le personnage (soit gentil ou méchant)
      */
     team : string = "ally"
+    mana : number = 40
+    manaMax : number = 40
     /**
      * il s'agit de la chance qu'aura notre personnage
      */

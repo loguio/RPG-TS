@@ -4,6 +4,8 @@ import Ether from "./ClassObjet/Ether.ts"
 import MorceauEtoile from "./ClassObjet/MorceauEtoile.ts"
 import DemiEtoile from "./ClassObjet/DemiEtoile.ts"
 import Perso from "./character/Personnage.ts"
+import Mage from "./character/Mage.ts"
+import Pretre from "./character/Pretre.ts"
 
 export default class Inventory {
     inventory : Objets[] = [new Potion(), new Ether(), new DemiEtoile(),new MorceauEtoile()]
@@ -28,13 +30,18 @@ export default class Inventory {
         }
         choose = prompt("Qui choisissez vous ? >")
         if (choose == "1" || choose == "2" || choose == "3") {//choix du personnage
-            if (ally[parseInt(choose)-1].isAlive()) {//si le personnage est en vie
-                console.log(item)
-                if (item != null && item.name == "Potion") {//si l'objet est une potion
+            if (item != null) {
+                if (item.name == "Potion") {//si l'objet est une potion
                     item.Healing(ally[parseInt(choose)-1])//le personnage se soigne
-                }else if (item != null && item.name == "Ether") {
-                    item.ether(ally[parseInt(choose)-1])
-                }
+                }else if (item.name == "Ether" && ally[parseInt(choose)-1].name == "Mage") {
+                    item.ether(ally[parseInt(choose)-1] as Mage)
+                }else if (item.name == "Ether" && ally[parseInt(choose)-1].name == "Pretre" ) {
+                    item.ether(ally[parseInt(choose)-1] as Pretre)
+                }else if (item.name == "DemiEtoile") {
+                    item.demiEtoile(ally[parseInt(choose)-1])
+                }else if (item.name == "MorceauEtoile"){
+                    item.morceauEtoile(ally[parseInt(choose)-1])
+                }else {console.log("recommencer mais choisissez des entrée valides");this.showInventory(ally)}
             }
         }
     }
