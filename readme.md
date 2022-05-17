@@ -8,7 +8,7 @@ Ce projet a été totalement réalisé en TimeScript, une version améliorée de
 
 ## Comment faire fonctionner le jeux
 
-Pour commencer, copiez les fichiers du jeux dans un dossier RPG, ensuite assurez vous d'être dans le dossier ou le fichier "GameManager.ts" se situe et lancer la commande suivant pour directement démarrer l'aventure : "deno run ./GameManager.ts"
+Pour commencer, copiez les fichiers du jeux dans un dossier RPG, ensuite assurez vous d'être dans le dossier ou le fichier "GameManager.ts" se situe et lancer la commande suivante pour directement démarrer l'aventure : "deno run ./GameManager.ts"
 
 ## Auteur
 
