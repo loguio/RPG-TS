@@ -1,6 +1,12 @@
 import Chara from "./character/Personnage.ts";
 import progressbar from "./progressBar.ts";
 import Monster from "./character/Monstre.ts"
+import Pretre from "./character/Pretre.ts"
+import Paladin from "./character/Paladin.ts"
+import Mage from "./character/Mage.ts"
+import Voleur from "./character/Voleur.ts"
+import Guerrier from "./character/Guerrier.ts"
+import Barbare from "./character/Barbare.ts"
 
 export default class Menu {
 
@@ -85,19 +91,26 @@ export default class Menu {
         }
         for (let i = 0; i < this.choice.length; i++) {//crée les personnages dans la liste de l'équipe
             if (this.choice[i] == "1") {
-                this.team.push(new Chara("Guerrier"));
+                this.team.push(new Guerrier("Guerrier"));
             } else if (this.choice[i] == "2") {
-                this.team.push(new Chara("Mage"));
+                this.team.push(new Mage("Mage"));
             } else if (this.choice[i] == "3") {
-                this.team.push(new Chara("Paladin"));
+                this.team.push(new Paladin("Paladin"));
             } else if (this.choice[i] == "4") {
-                this.team.push(new Chara("Barbare"));
+                this.team.push(new Barbare("Barbare"));
             } else if (this.choice[i] == "5") {
-                this.team.push(new Chara("Prêtre"));
+                this.team.push(new Pretre("Prêtre"));
             } else if (this.choice[i] == "6") {
-                this.team.push(new Chara("Voleur"));
+                this.team.push(new Voleur("Voleur"));
             }            
         }
         return this.team  
+    }
+    ShowEnemies(enemies: Monster[]) {
+        for (let index = 0; index < enemies.length; index++) {//pour chaque ennemi
+            if (enemies[index].isAlive()) {
+                console.log(`${index+1}. ${enemies[index].name}`)//affiche le nom de l'ennemi
+            }
+        }
     }
 }

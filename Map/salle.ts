@@ -48,7 +48,4 @@ export default class room {
         }
         console.log("Vous avez quitté la salle !\n")
     }
-    showRoom() {
-        
-    }   
 }

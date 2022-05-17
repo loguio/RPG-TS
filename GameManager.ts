@@ -26,17 +26,6 @@ export default class GameManager {
         for (let i = 0; i < 5; i++) {
             room.room(this, this.inventory);
         }
-        let counter : number = 0
-        this.team.forEach(element => {
-            if (element.isAlive()) {
-                console.log("bravo vous avez gagné !")
-            }else {
-                counter++
-            }
-        });
-        if (counter==3) {
-            console.log("vous avez perdu :'( ")
-        }
     }
     constructor(){
         this.startGame();//lance le jeu
