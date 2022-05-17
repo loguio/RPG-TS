@@ -1,9 +1,11 @@
-import Perso from "../caracter/Personnage.ts"
+import Mage from "../character/Mage.ts"
+import Pretre from "../character/Pretre.ts"
+import Objet from "./Objet.ts"
 
-export default class Ether extends Perso{
+export default class Potion extends Objet {
     name : string = "Ether";
     magie : number = 30;
-    ether(){
-        if (this.alive = true) {this.valuemagie = this.valuemagie + this.magie}
+    ether(Ally:Mage | Pretre){
+        if (Ally.isAlive()) {Ally.mana = Math.min(Ally.mana + this.magie,Ally.manaMax)}
     }
 }

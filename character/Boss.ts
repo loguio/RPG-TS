@@ -1,4 +1,7 @@
 import Monstre from "./Monstre.ts"
+/**
+ * la classe Boss est une classe enfant de la class Monstre il s'agit de l'ennemie final de notre jeu 
+ */
 export default class Boss extends Monstre{
     name : string = "Boss";
     ValueMaxLife = 300

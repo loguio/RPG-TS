@@ -114,4 +114,6 @@ export default class Fight {
         }
         ennemi.Attack(tempo)//attaque l'allié
     }
+
+    
 }

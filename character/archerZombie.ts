@@ -1,5 +1,7 @@
 import Monstre from "./Monstre.ts"
-
+/**
+ * ArcherZombie est une class enfant de la class Monstre
+ */
 export default class ArcherZombie extends Monstre{
     name : string = "ArcherZombie";
     ValueMaxLife = 80
