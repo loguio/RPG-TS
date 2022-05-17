@@ -63,9 +63,9 @@ export default class Fight {
     }
     /**
      * Fonction qui permet de lancer le combat
-     * @param ally 
-     * @param ennemies 
-     * @param inventory 
+     * @param ally il s'agit d'une liste de personnages Alliés (ceux de l'utilisateur)
+     * @param ennemies il s'agit d'une liste de monstres Ennemies 
+     * @param inventory il s'agit de l'inventaire contenant tous les objets 
      */
     fight(ally : Chara[],ennemies : Monster[], inventory : Inventory) {
         this.Ally = ally
@@ -99,7 +99,6 @@ export default class Fight {
             let choose :string | null= prompt("qui voulez vous attaquer ? >")//choix de l'ennemi à attaquer
             if (choose != null || choose == "1" || choose == "2" || choose == "3" ) {
                 ally.Attack(this.Ennemies[parseInt(choose)-1])//attaque l'ennemi
-                // console.log(this.Ennemies[parseInt(choose)-1])//affiche l'ennemi attaqué
             }
         }else if (choose == "3") {//si le choix est utiliser une attaque magique
             if (this.magic() == false) {//vérifie si le personnage peut utiliser une attaque magique
@@ -114,5 +113,6 @@ export default class Fight {
             allyAlive = this.Ally[Math.floor(Math.random()*3)]//choisi un allié au hasard
         }
         ennemi.Attack(allyAlive)//attaque l'allié
+        this.menu.showAttack(ennemi.valueAtk-allyAlive.valueDef, ennemi.name, allyAlive.name)
     }
 }

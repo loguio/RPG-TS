@@ -1,6 +1,9 @@
 import Perso from "./Personnage.ts";
 import Monster from "./Monstre.ts"
 
+/**
+ * la classe Paladin est une classe enfant de la classe Perso
+ */
 export default class Paladin extends Perso {
     name : string = "Paladin";
     sainte : number = 0;

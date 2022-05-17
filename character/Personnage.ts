@@ -1,7 +1,7 @@
 /**
  * il s'agit de la classe de création de n'importe quel personnage 
  */
-export default class Perso {
+export default class Chara {
     /**
     * il s'agit du nom qu'aura notre personnage  
     */
@@ -34,6 +34,8 @@ export default class Perso {
      * il s'agit de la team dans laquel est le personnage (soit gentil ou méchant)
      */
     team : string = "ally"
+    mana : number = 40
+    manaMax : number = 40
     /**
      * il s'agit de la chance qu'aura notre personnage
      */
@@ -45,7 +47,7 @@ export default class Perso {
      * Fonction pour attaquer un personnage
      * @param enemy l'ennemi que le personnage va attaquer
      */
-    Attack(enemy : Perso) {
+    Attack(enemy : Chara) {
         if (this.valueAtk <= enemy.valueDef) {enemy.valueDef = Math.max(0,enemy.valueDef - (this.valueAtk/4) ); console.log("l'ennemie a perdu de l'armure")}
         else {let tempLife = enemy.life;enemy.life = Math.max(enemy.life - (this.valueAtk - enemy.valueDef),0);console.log("\nLife",enemy.name," : ",tempLife," --> ", enemy.life)};
     }

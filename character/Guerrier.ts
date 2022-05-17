@@ -1,5 +1,7 @@
 import Perso from "./Personnage.ts";
-
+/**
+ * la classe Guerrier est une classe enfant de Perso
+ */
 export default class Guerrier extends Perso {
     name :  string = "Guerrier";
     valueAtk = 70;

@@ -1,9 +1,7 @@
-import Perso from "../caracter/Personnage.ts"
+import Object from "./Objet.ts"
 
-export default class Ether extends Perso{
+export default class Ether extends Object {
     name : string = "Ether";
     magie : number = 30;
-    ether(){
-        if (this.alive = true) {this.valuemagie = this.valuemagie + this.magie}
-    }
+
 }
