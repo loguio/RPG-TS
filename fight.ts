@@ -113,6 +113,5 @@ export default class Fight {
         }
         ennemi.Attack(tempo)//attaque l'allié
         this.menu.showAttack(ennemi.valueAtk-tempo.valueDef, ennemi.name, tempo.name)
-        console.log(this.Ally)
     }
 }
