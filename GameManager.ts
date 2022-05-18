@@ -27,15 +27,11 @@ export default class GameManager {
             room.room(this, this.inventory);
         }
         let counter : number = 0
-        this.team.forEach(element => {
-            if (element.isAlive()) {
-                console.log("bravo vous avez gagné !")
-            }else {
-                counter++
+        for (let index = 0; index < this.team.length; index++) {
+            const element = this.team[index];
+            if (element.isAlive()) {console.log("Bravo vous avez gagnez !")}else {counter++
+            if (counter==3) {console.log("vous avez perdu !")}
             }
-        });
-        if (counter==3) {
-            console.log("vous avez perdu :'( ")
         }
     }
     constructor(){
