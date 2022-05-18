@@ -27,15 +27,10 @@ export default class GameManager {
             room.room(this, this.inventory);
         }
         let counter : number = 0
-        this.team.forEach(element => {
-            if (element.isAlive()) {
-                console.log("bravo vous avez gagné !")
-            }else {
-                counter++
-            }
-        });
-        if (counter==3) {
-            console.log("vous avez perdu :'( ")
+        for (let index = 0; index < this.team.length; index++) {
+            const element = this.team[index];
+            if (element.isAlive()) {console.log("Bravo vous avez gagnez !");break}else {counter++} // on verifie si un jouer allié est en vie si c'est le cas le joueur a gagné
+            if (counter==3) {console.log("vous avez perdu !")} // si counter est égal a 3 cest que les 3 personnages sont mort donc c'est la défaite
         }
     }
     constructor(){
