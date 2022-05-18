@@ -146,6 +146,12 @@ export default class Fight {
             }
             ennemi.Attack(allyAlive)//attaque l'allié
             this.menu.showAttack(ennemi.valueAtk-allyAlive.valueDef, ennemi.name, allyAlive.name) // permet d'afficher l'action qui viens de se dérouler
+            var start = new Date().getTime();
+            for (var i = 0; i < 1e7; i++) {
+                if ((new Date().getTime() - start) > 2500){
+                    break;
+                }
+            }
         }
     }
 }
