@@ -20,7 +20,7 @@ export default class Barbare extends Chara{
  */
      public Berserk(ennemi : Monster[]){
         let tempo : Monster = ennemi[Math.floor(Math.random()*3)]
-        while(!tempo.isAlive) {
+        while(!tempo.isAlive()) {
             tempo = ennemi[Math.floor(Math.random()*3)]
         }
         tempo.life = Math.max(0,tempo.life-this.valueAtk*1.3)
