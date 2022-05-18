@@ -19,7 +19,7 @@ export default class Barbare extends Chara{
  * @param ennemi il s'agit de la liste de tous nos ennemies durant un combat
  */
      public Berserk(ennemi : Monster[]){
-        let tempo : Chara = ennemi[Math.floor(Math.random()*3)]
+        let tempo : Monster = ennemi[Math.floor(Math.random()*3)]
         while(!tempo.isAlive) {
             tempo = ennemi[Math.floor(Math.random()*3)]
         }

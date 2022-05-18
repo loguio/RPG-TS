@@ -6,7 +6,7 @@ import Ether from "../ClassObjet/Ether.ts"
 import MorceauEtoile from "../ClassObjet/MorceauEtoile.ts"
 
 export default class Chest {
-    chest(player :Chara,inventory : Inventory) {
+    public chest(player :Chara,inventory : Inventory) {
         console.log("Vous avez trouvé un coffre !\nOuverture du coffre !")
         let openChest = Math.round(Math.random())//génere un nombre aléatoire entre 0 et 1
         if (openChest == 1) {//ouverture du coffre avec succès

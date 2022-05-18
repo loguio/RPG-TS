@@ -10,13 +10,13 @@ import MonsterCreation from "../createMonster.ts"
 
 export default class room {
     // Monstres : Perso[] = [new Monster(), new Monster(), new Monster()]
-    Chest : Chest | null = null
+    public Chest : Chest | null = null
     /**
      * Fonction qui se lance lorsque le joueur entre dans une salle
      * @param gameManager 
      * @param inventory  
      */
-    room(gameManager: GameManager, inventory : Inventory){
+    public room(gameManager: GameManager, inventory : Inventory){
         let Monsters : Monster[] = MonsterCreation.createMonster()
         console.log("Vous rentrez dans une salle")
         if (gameManager.place == 1 || gameManager.place == 3) {             //Si on est dans la salle 1 ou 3

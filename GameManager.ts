@@ -4,12 +4,12 @@ import Room from "./Map/salle.ts";
 import Inventory from "./inventory.ts"
 
 export default class GameManager {
-    inventory : Inventory = new Inventory()
+    public inventory : Inventory = new Inventory()
     /**
      * Initialise la liste qui va contenir l'équipe du joueur
      * @type {Perso[]}
      */
-    team: Chara[] = [];
+    public team: Chara[] = [];
     /**
      * @type {number} Variable qui contient dans quelle salle est le joueur
      */
@@ -20,7 +20,7 @@ export default class GameManager {
     public set place(value: number) {
         this._place = value;
     }
-    startGame() {
+    private startGame() {
         this.team = new Menu().chooseCharacter();//lance et initialise le menu de choix de personnage
         let room = new Room();
         for (let i = 0; i < 5; i++) {
