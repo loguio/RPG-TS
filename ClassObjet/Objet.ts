@@ -4,9 +4,9 @@ import Pretre from "../character/Pretre.ts"
 
 
 export default class Object {
-    name : string = ""
-    heal : number = 50;
-    magie : number = 30;
+    public name : string = ""
+    public heal : number = 50;
+    public magie : number = 30;
 
     /**
      * Foncion pour heal le personnage

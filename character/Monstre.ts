@@ -16,36 +16,5 @@ export default class Monstre extends Chara{
     team : string = "ennemi"
     mana : number = 40
     manaMax : number = 40
-
-    UseItem() {
-
-    }
-    /**
-     * Fonction pour attaquer un personnage
-     * @param enemy l'ennemi que le personnage va attaquer
-     */
-    Attack(enemy : any) {
-        let tempLife = enemy.life
-        enemy.life = Math.max(enemy.life - (Math.max(this.valueAtk - enemy.valueDef,0)),0);
-        console.log("\nLife",enemy.name," : ",tempLife," --> ", enemy.life)
-    }
-    /**
-     * Fonction pour soigner un personnage  
-     */
-    Heal() {
-        this.life += 0.2*this.ValueMaxLife;
-    }
-    /**
-     * Fonction pour enlever la vie du personne quand il tombe dans un piège
-     */
-    Trap(){
-        this.life -= 50;
-    }
-    /**
-     * Fonction qui vérifie si le personnage est mort ou vivant 
-     */
-    isAlive()  : boolean{
-        if (this.life == 0) {return false} return true
-    }
     
 }

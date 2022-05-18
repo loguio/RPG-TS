@@ -1,9 +1,9 @@
-import Perso from "./Personnage.ts";
+import Chara from "./Personnage.ts";
 import Monster from "./Monstre.ts"
 /** 
  * la classe Barbare est une classe enfant de la classe Perso
 */
-export default class Barbare extends Perso{
+export default class Barbare extends Chara{
     name : string = "Barbare";
     valueAtk : number = 80;
     valueAtkMagic : number = 40;
@@ -14,6 +14,17 @@ export default class Barbare extends Perso{
     valuemagie : number = 0;
     chance : number = 100;
     team : string = "ally"
+    /**
+ * il s'agit de l'attaque spéciale du barbare
+ * @param ennemi il s'agit de la liste de tous nos ennemies durant un combat
+ */
+     public Berserk(ennemi : Monster[]){
+        let tempo : Monster = ennemi[Math.floor(Math.random()*3)]
+        while(!tempo.isAlive) {
+            tempo = ennemi[Math.floor(Math.random()*3)]
+        }
+        tempo.life = Math.max(0,tempo.life-this.valueAtk*1.3)
+    }
 }
 
 // Le barbare aura une défense faible et une attaque plus élevée encore que leguerrier. 

@@ -2,15 +2,14 @@ import Objects from "./ClassObjet/Objet.ts"
 import Potion from "./ClassObjet/potion.ts"
 import Ether from "./ClassObjet/Ether.ts"
 import MorceauEtoile from "./ClassObjet/MorceauEtoile.ts"
-import DemiEtoile from "./ClassObjet/DemiEtoile.ts"
 import Chara from "./character/Personnage.ts"
 import Mage from "./character/Mage.ts"
 import Pretre from "./character/Pretre.ts"
 
 export default class Inventory {
-    inventory : Objects[] = [new Potion(), new Ether(), new DemiEtoile(),new MorceauEtoile()]
+    public inventory : Objects[] = [new Potion(), new Ether(), new Potion(),new MorceauEtoile()]
 
-    showInventory(ally : Chara[]) {//affiche l'inventaire
+    public showInventory(ally : Chara[]) {//affiche l'inventaire
         if (this.inventory.length == 0) {return null}
 
         for (let index = 1; index <= this.inventory.length; index++) {//affiche les objets
@@ -53,7 +52,7 @@ export default class Inventory {
      * ajoute un objet à l'inventaire
      * @param item 
      */
-    addItem(item : Objects) {
+    public addItem(item : Objects) {
         this.inventory.push(item)
     }
 

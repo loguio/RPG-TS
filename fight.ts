@@ -2,31 +2,31 @@ import Chara from "./character/Personnage.ts";
 import Menu from "./menu.ts";
 import Inventory from "./inventory.ts"
 import Monster from "./character/Monstre.ts"
-import Mage from "./character/Mage.ts"
+import Boss from "./character/Boss.ts"
 
 export default class Fight {
     /**
      * @type {Menu}
      */
-    menu : Menu = new Menu()
+    public menu : Menu = new Menu()
     /**
      * @type {Inventory}
      */
-    inventory : Inventory = new Inventory()
+    public inventory : Inventory = new Inventory()
     /**
      * @type {Perso[]}
      */
-    Ally : Chara[]  = []
+    protected Ally : Chara[]  = []
     /**
      * @type {Monster[]}
      */
-    Ennemies : Monster[] = []
+    protected Ennemies : Monster[] = []
     /**
      * @type {Perso[]}
     */ 
-    goodOrder : Chara[]= []
+    private goodOrder : Chara[]= []
 
-    Order() {//met dans l'ordre de combat
+    private Order() {//met dans l'ordre de combat
         this.Ally.forEach(element => {//ajoute les personnages de l'équipe alliée dane le tableau goodOrder
             this.goodOrder.push(element)
         });
@@ -36,7 +36,7 @@ export default class Fight {
         this.goodOrder = this.goodOrder.sort()//trie le tableau
     }
 
-    AllyTeamAlive() {//vérifie si l'équipe alliée est en vie
+    private AllyTeamAlive() {//vérifie si l'équipe alliée est en vie
         for (const element of this.Ally) {
             if (element.isAlive()) {
                 return true
@@ -46,7 +46,7 @@ export default class Fight {
     }
 
     
-    EnnemiesTeamAlive() {//vérifie si l'équipe ennemie est en vie
+    private EnnemiesTeamAlive() {//vérifie si l'équipe ennemie est en vie
         for (const element of this.Ennemies) {
             if (element.isAlive()) {
                 return true
@@ -61,7 +61,7 @@ export default class Fight {
      * @param ennemies il s'agit d'une liste de monstres Ennemies 
      * @param inventory il s'agit de l'inventaire contenant tous les objets 
      */
-    fight(ally : Chara[],ennemies : Monster[], inventory : Inventory) {
+    public fight(ally : Chara[],ennemies : Monster[], inventory : Inventory) {
         this.Ally = ally
         this.inventory = inventory
         this.Ennemies = ennemies
@@ -74,6 +74,8 @@ export default class Fight {
             }else if (this.goodOrder[order].isAlive()) {//si le personnage est en vie et que c'est l'équipe ennemie
                 this.menu.showCharacter(this.Ally,this.Ennemies)
                 this.EnnemieFight(this.goodOrder[order])//le personnage attaque
+                setTimeout(function(){ 
+                }, 1000);
             }
             if (order == this.goodOrder.length-1) {order = 0} else {order++}//passe au personnage suivant
         }
@@ -81,42 +83,62 @@ export default class Fight {
             else {console.log("Mince vous avez perdu...")}
     }
 
-    AllyFight(ally : Chara) {//fonction qui permet de lancer le combat pour un allié
+    protected AllyFight(ally : any) {//fonction qui permet de lancer le combat pour un allié
         console.log(`c'est au tour de ${ally.name}`)
         let choose : string | null = Menu.menuFight()//choix de l'action
         while(choose == null ) {choose = Menu.menuFight()}//vérifie que le choix est valide
         if (choose == "1") {//si le choix montrer l'inventaire
             this.inventory.showInventory(this.Ally)//affiche l'inventaire
         }else if (choose == "2") {//si le choix est attaquer
-            for (let index = 0; index < this.Ennemies.length; index++) {//pour chaque ennemi
-                if (this.Ennemies[index].isAlive()) {
-                    console.log(`${index+1}. ${this.Ennemies[index].name}`)//affiche le nom de l'ennemi
-                }
+            this.menu.ShowEnemies(this.Ennemies)//affiche les ennemis
+
+            let choose :string | null = null
+            while (choose !== "1" && choose !== "2" && choose !== "3" ) {
+                choose = prompt("qui voulez vous attaquer ? >") //choix de l'ennemi à attaquer
+            }        
+            ally.Attack(this.Ennemies[parseInt(choose)-1])//attaque l'ennemi
+
+        }else if (choose == "3") {//si le choix est utiliser une attaque spéciale
+
+            let choose : null | string = null
+            while (choose !== "y" && choose !== "n" && choose !== "Y" && choose !== "N") {
+                choose = prompt("voulez vous faire l'attaque spéciale ? Y/N")
             }
-            let choose :string | null= prompt("qui voulez vous attaquer ? >")//choix de l'ennemi à attaquer
-            if (choose != null || choose == "1" || choose == "2" || choose == "3" ) {
-                ally.Attack(this.Ennemies[parseInt(choose)-1])//attaque l'ennemi
-            }
-        }else if (choose == "3") {//si le choix est utiliser une attaque magique
-            let choose : null | string = prompt("voulez vous faire l'attaque spéciale ? Y/N")
-            if (choose== "N" || choose == "n" || choose == "non") {this.AllyFight(ally)}else {
+
+            if (choose == "N" || choose == "n") {this.AllyFight(ally)}else {
                 switch(ally.name) {
                     case("Mage"):
-                    ally.MagicAttck(this.Ennemies)
+                        ally.MagicAttck(this.Ennemies)
+                        break
                     case("Barbare"):
-                    ally.Berserk(this.Ennemies)
+                        ally.Berserk(this.Ennemies)
+                        break
                     case("Paladin"):
-                    ally.Sainte(this.Ennemies)
+                        ally.Sainte(this.Ennemies)
+                        break
                     case("Pretre"):
-                    ally.Healing(this.Ally)
+                        ally.Healing(this.Ally)
+                        break
+                    case("Guerrier"):
+                        this.menu.ShowEnemies(this.Ennemies)//affiche les ennemis
+                        let choose :string | null = null
+                        while (choose !== "1" && choose !== "2" && choose !== "3") {
+                            choose = prompt("qui voulez vous attaquer ? >") //choix de l'ennemi à attaquer
+                        }        
+                        ally.Attack(this.Ennemies[parseInt(choose)-1])//attaque l'ennemi
+                
+                        break
+                    case("Voleur"):
+                        ally.steal(this.inventory)
+                        break
                 }
             }
         }else {this.AllyFight(ally)}//retourne au menu
     }
 
-    EnnemieFight(ennemi : Chara) {//fonction qui permet de lancer le combat pour un ennemi
-        if (ennemi.name == "Boss") {
-            ennemi.AttackBoss(this.Ally)
+    protected EnnemieFight(ennemi : Chara) {//fonction qui permet de lancer le combat pour un ennemi
+        if (ennemi instanceof Boss) {//si l'ennemi est un boss
+            ennemi.AttackBoss(this.Ally) 
         }else {
             let allyAlive : Chara = this.Ally[Math.floor(Math.random()*3)]//choisi un allié au hasard
             while(!allyAlive.isAlive) {//tant que l'allié choisi n'est pas en vie
