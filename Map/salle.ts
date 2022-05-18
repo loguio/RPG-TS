@@ -27,6 +27,9 @@ export default class room {
         }
         else if (gameManager.place == 2 || gameManager.place == 4) {//Si on est dans la salle 2 ou 4
             let character:string|Chara = Menu.question("Choissisez un personnage pour ouvrir le coffre : ")
+            while (character != "1" && character != "2" && character != "3") {
+                character = Menu.question("Choissisez un personnage pour ouvrir le coffre : ")
+            }
             if (character == "1") {//Si le joueur choisit le personnage 1
                 character = gameManager.team[0]   //On affecte le personnage 1 à caractere
             }else if (character == "2") {//Si le joueur choisit le personnage 2
