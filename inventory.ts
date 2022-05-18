@@ -5,6 +5,7 @@ import MorceauEtoile from "./ClassObjet/MorceauEtoile.ts"
 import Chara from "./character/Personnage.ts"
 import Mage from "./character/Mage.ts"
 import Pretre from "./character/Pretre.ts"
+import DemiEtoile from "./ClassObjet/DemiEtoile.ts"
 
 export default class Inventory {
     public inventory : Objects[] = [new Potion(), new Ether(), new Potion(),new MorceauEtoile()]
@@ -29,19 +30,19 @@ export default class Inventory {
         let choose2 : string | null = prompt("Qui choisissez vous ? >")
         if (choose2 == "1" || choose2 == "2" || choose2 == "3") {//choix du personnage
             if (item != null) {
-                if (item.name == "Potion") {//si l'objet est une potion
+                if (item instanceof Potion) {//si l'objet est une potion
                     item.Healing(ally[parseInt(choose2)-1])//le personnage se soigne
                     this.inventory.splice(parseInt(choose as string)-1,1)
-                }else if (item.name == "Ether" && ally[parseInt(choose2)-1].name == "Mage") {
+                }else if (item instanceof Ether && ally[parseInt(choose2)-1].name == "Mage") {
                     item.ether(ally[parseInt(choose2)-1] as Mage)
                     this.inventory.splice(parseInt(choose as string)-1,1)
-                }else if (item.name == "Ether" && ally[parseInt(choose2)-1].name == "Pretre" ) {
+                }else if (item instanceof Ether && ally[parseInt(choose2)-1].name == "Pretre" ) {
                     item.ether(ally[parseInt(choose2)-1] as Pretre)
                     this.inventory.splice(parseInt(choose as string)-1,1)
-                }else if (item.name == "Demi Etoile") {
+                }else if (item instanceof DemiEtoile) {
                     item.demiEtoile(ally[parseInt(choose2)-1])
                     this.inventory.splice(parseInt(choose as string)-1,1)
-                }else if (item.name == "MorceauEtoile"){
+                }else if (item instanceof MorceauEtoile) {
                     item.morceauEtoile(ally[parseInt(choose2)-1])
                     this.inventory.splice(parseInt(choose as string)-1,1)
                 }else {console.log("recommencer mais choisissez des entrée valides");this.showInventory(ally)}
